@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BMI Calculator - Free Online BMI Calculator | EasyToolBox</title>
+
+    <meta name="description" content="Calculate your BMI easily with our free online BMI Calculator. Enter your height and weight to find your BMI and weight category.">
+
+    <meta name="keywords" content="BMI calculator, calculate BMI, online BMI calculator, free BMI calculator, body mass index calculator">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="nav-logo">
+        EasyToolBox
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">All Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <h1>BMI Calculator</h1>
+
+    <p>
+        Calculate your Body Mass Index (BMI) using your height and weight.
+    </p>
+
+    <section>
+
+        <h2>Calculate Your BMI</h2>
+
+        <input
+            type="number"
+            id="weight"
+            placeholder="Weight (kg)"
+        >
+
+        <input
+            type="number"
+            id="height"
+            placeholder="Height (cm)"
+        >
+
+        <button onclick="calculateBMI()">
+            Calculate BMI
+        </button>
+
+        <h3 id="bmiResult"></h3>
+
+        <p id="bmiCategory"></p>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <p>© 2026 EasyToolBox</p>
+
+    <div class="footer-links">
+
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
