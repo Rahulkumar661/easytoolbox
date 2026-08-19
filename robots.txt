@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rahulkumar661.github.io/easytoolbox/sitemap.xml
