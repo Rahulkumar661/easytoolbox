@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EMI Calculator - Free Online EMI Calculator | EasyToolBox</title>
+
+    <meta name="description" content="Calculate your monthly EMI, total interest and total payment easily with our free online EMI Calculator.">
+
+    <meta name="keywords" content="EMI calculator, loan EMI calculator, monthly EMI calculator, home loan EMI calculator, online EMI calculator, free EMI calculator">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="nav-logo">
+        EasyToolBox
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">All Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <h1>EMI Calculator</h1>
+
+    <p>
+        Calculate your monthly loan EMI, total interest and total payment
+        using our free online EMI Calculator.
+    </p>
+
+    <section>
+
+        <h2>Calculate Your EMI</h2>
+
+        <input
+            type="number"
+            id="loanAmount"
+            placeholder="Loan Amount (₹)"
+        >
+
+        <input
+            type="number"
+            id="interestRate"
+            placeholder="Interest Rate (%)"
+        >
+
+        <input
+            type="number"
+            id="loanTenure"
+            placeholder="Loan Tenure (Years)"
+        >
+
+        <button onclick="calculateEMI()">
+            Calculate EMI
+        </button>
+
+        <h3 id="emiResult"></h3>
+
+        <p id="totalInterest"></p>
+
+        <p id="totalPayment"></p>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <p>© 2026 EasyToolBox</p>
+
+    <div class="footer-links">
+
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
