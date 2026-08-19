@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EasyToolBox - Free Online Tools</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<nav class="navbar">
+
+    <div class="nav-logo">
+        EasyToolBox
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#tools">All Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+</nav>
+    <header>
+        <h1>EasyToolBox</h1>
+        <p>Free Online Tools for Everyone</p>
+    </header>
+
+
+    <main class="container">
+
+        <h2>All Online Tools</h2>
+<input
+    type="text"
+    id="searchBox"
+    placeholder="🔍 Search tools..."
+    onkeyup="searchTools()"
+>
+
+        <div class="tools" id="tools"></div>
+
+            <div class="tool-card">
+                <h3>Percentage Calculator</h3>
+
+                <p>Calculate percentage easily.</p>
+
+                <button onclick="showCalculator()">
+                    Use Tool
+                </button>
+            </div>
+
+<div class="tool-card">
+    <h3>Age Calculator</h3>
+
+    <p>Calculate your exact age.</p>
+
+    <button onclick="showAgeCalculator()">
+        Use Tool
+    </button>
+</div>
+            
+
+            <div class="tool-card">
+                <h3>EMI Calculator</h3>
+
+                <p>Calculate your monthly EMI.</p>
+
+                <button>
+                    <button onclick="showEMICalculator()">
+    Use Tool
+</button>
+                </button>
+            </div>
+<div class="tool-card">
+    <h3>GST Calculator</h3>
+
+    <p>Calculate GST amount easily.</p>
+
+    <button onclick="showGSTCalculator()">
+        Use Tool
+    </button>
+</div>
+
+            <div class="tool-card">
+                <h3>Unit Converter</h3>
+
+                <p>Convert units easily.</p>
+
+                <button>
+                    Coming Soon
+                </button>
+            </div>
+
+        </div>
+
+
+        <section id="percentageTool">
+<section id="ageTool">
+
+    <h2>Age Calculator</h2>
+
+    <p>Select your date of birth:</p>
+
+    <input
+        type="date"
+        id="dateOfBirth"
+    >
+
+    <button onclick="calculateAge()">
+        Calculate Age
+    </button>
+
+    <h3 id="ageResult"></h3>
+
+</section>
+            <h2>Percentage Calculator</h2>
+
+            <input
+                type="number"
+                id="number"
+                placeholder="Enter number"
+            >
+
+            <input
+                type="number"
+                id="percentage"
+                placeholder="Enter percentage"
+            >
+
+            <button onclick="calculatePercentage()">
+                Calculate
+            </button>
+
+            <h3 id="result"></h3>
+
+        </section>
+<section id="ageTool">
+
+    <h2>Age Calculator</h2>
+
+    <p>Select your date of birth:</p>
+
+    <input type="date" id="dateOfBirth">
+
+    <button onclick="calculateAge()">
+        Calculate Age
+    </button>
+
+    <h3 id="ageResult"></h3>
+
+</section><section id="emiTool">
+
+    <h2>EMI Calculator</h2>
+
+    <p>Enter your loan details:</p>
+
+    <input
+        type="number"
+        id="loanAmount"
+        placeholder="Loan Amount (₹)"
+    >
+
+    <input
+        type="number"
+        id="interestRate"
+        placeholder="Interest Rate (%)"
+    >
+
+    <input
+        type="number"
+        id="loanTenure"
+        placeholder="Loan Tenure (Years)"
+    >
+
+    <button onclick="calculateEMI()">
+        Calculate EMI
+    </button>
+
+    <h3 id="emiResult"></h3>
+
+    <p id="totalInterest"></p>
+
+    <p id="totalPayment"></p>
+
+</section>
+ <section id="gstTool">
+
+    <h2>GST Calculator</h2>
+
+    <p>Enter amount and GST rate:</p>
+
+    <input
+        type="number"
+        id="gstAmount"
+        placeholder="Enter Amount (₹)"
+    >
+<div class="tool-card">
+    <h3>BMI Calculator</h3>
+
+    <p>Calculate your Body Mass Index.</p>
+
+    <button onclick="showBMICalculator()">
+        Use Tool
+    </button>
+</div><div class="tool-card">
+
+    <h3>Discount Calculator</h3>
+
+    <p>Calculate discount and final price.</p>
+
+    <button onclick="showDiscountCalculator()">
+        Use Tool
+    </button>
+
+</div>
+    <input
+        type="number"
+        id="gstRate"
+        placeholder="GST Rate (%)"
+    >
+
+    <button onclick="calculateGST()">
+        Calculate GST
+    </button>
+
+    <h3 id="gstResult"></h3>
+
+    <p id="gstTotal"></p>
+
+</section> <section id="bmiTool">
+
+   <h3>BMI Calculator</h3>
+
+    <p>Enter your height and weight:</p>
+
+    <input
+        type="number"
+        id="weight"
+        placeholder="Weight (kg)"
+    >
+
+    <input
+        type="number"
+        id="height"
+        placeholder="Height (cm)"
+    >
+
+    <button onclick="calculateBMI()">
+        Calculate BMI
+    </button>
+
+    <h3 id="bmiResult"></h3>
+
+    <p id="bmiCategory"></p>
+<section id="discountTool">
+
+    <h2>Discount Calculator</h2>
+
+    <p>Enter price and discount:</p>
+
+    <input
+        type="number"
+        id="originalPrice"
+        placeholder="Original Price (₹)"
+    >
+
+    <input
+        type="number"
+        id="discountPercent"
+        placeholder="Discount (%)"
+    >
+
+    <button onclick="calculateDiscount()">
+        Calculate Discount
+    </button>
+
+    <h3 id="discountResult"></h3>
+
+    <p id="finalPrice"></p>
+
+</section>
+</section>  </main>
+
+
+   <footer>
+
+    <p>© 2026 EasyToolBox</p>
+
+    <div class="footer-links">
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="privacy.html">Privacy Policy</a>
+
+        <a href="terms.html">Terms & Conditions</a>
+
+    </div>
+
+</footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
