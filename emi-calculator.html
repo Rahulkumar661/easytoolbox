@@ -2,20 +2,29 @@
 <html lang="en">
 
 <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJLNNYKJY7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RJLNNYKJY7');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>EMI Calculator - Free Online Loan EMI Calculator | EasyToolBox</title>
+    <title>EMI Calculator - Calculate Loan EMI Online | EasyToolBox</title>
 
-    <meta name="description" content="Calculate your monthly loan EMI, total interest and total payment with the free EasyToolBox EMI Calculator.">
-
-    <meta name="keywords" content="EMI calculator, loan EMI calculator, EMI calculator online, home loan EMI calculator, personal loan EMI calculator">
+    <meta name="description" content="Use the free EasyToolBox EMI Calculator to calculate monthly loan EMI, total interest and total payment quickly and easily.">
 
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://rahulkumar661.github.io/easytoolbox/emi-calculator.html">
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -52,27 +61,38 @@
 
         <p>Enter your loan details:</p>
 
+        <label for="loanAmount">Loan Amount (₹):</label>
+
         <input
             type="number"
             id="loanAmount"
-            placeholder="Loan Amount (₹)"
+            placeholder="Enter loan amount"
         >
+
+
+        <label for="interestRate">Annual Interest Rate (%):</label>
 
         <input
             type="number"
             id="interestRate"
-            placeholder="Interest Rate (%)"
+            placeholder="Enter interest rate"
+            step="0.01"
         >
+
+
+        <label for="loanTenure">Loan Tenure (Years):</label>
 
         <input
             type="number"
             id="loanTenure"
-            placeholder="Loan Tenure (Years)"
+            placeholder="Enter loan tenure"
         >
+
 
         <button onclick="calculateEMI()">
             Calculate EMI
         </button>
+
 
         <h3 id="emiResult"></h3>
 
@@ -145,11 +165,13 @@
             Yes. The EasyToolBox EMI Calculator is free to use.
         </p>
 
+
         <h3>What information is required?</h3>
 
         <p>
             You need the loan amount, annual interest rate and loan tenure.
         </p>
+
 
         <h3>Can I use this calculator on my mobile?</h3>
 
