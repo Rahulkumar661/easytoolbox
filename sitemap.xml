@@ -21,25 +21,29 @@
     <url>
         <loc>https://rahulkumar661.github.io/easytoolbox/terms.html</loc>
     </url>
-<url>
-    <loc>https://rahulkumar661.github.io/easytoolbox/age-calculator.html</loc>
-</url>
+
     <url>
-    <loc>https://rahulkumar661.github.io/easytoolbox/bmi-calculator.html</loc>
-</url>
-  <url>
-    <loc>https://rahulkumar661.github.io/easytoolbox/gst-calculator.html</loc>
-</url>  
+        <loc>https://rahulkumar661.github.io/easytoolbox/age-calculator.html</loc>
+    </url>
+
     <url>
-    <loc>https://rahulkumar661.github.io/easytoolbox/emi-calculator.html</loc>
-</url>
+        <loc>https://rahulkumar661.github.io/easytoolbox/bmi-calculator.html</loc>
+    </url>
+
     <url>
-    <loc>https://rahulkumar661.github.io/easytoolbox/percentage-calculator.html</loc>
-</url>
+        <loc>https://rahulkumar661.github.io/easytoolbox/gst-calculator.html</loc>
+    </url>
+
     <url>
-    <loc>https://rahulkumar661.github.io/easytoolbox/bmi-calculator.html</loc>
-</url>
+        <loc>https://rahulkumar661.github.io/easytoolbox/emi-calculator.html</loc>
+    </url>
+
     <url>
-    <loc>https://rahulkumar661.github.io/easytoolbox/discount-calculator.html</loc>
-</url>
+        <loc>https://rahulkumar661.github.io/easytoolbox/percentage-calculator.html</loc>
+    </url>
+
+    <url>
+        <loc>https://rahulkumar661.github.io/easytoolbox/discount-calculator.html</loc>
+    </url>
+
 </urlset>
