@@ -4,21 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EasyToolBox - Free Online Calculators & Online Tools</title>
 
-<meta name="description" content="EasyToolBox offers free online calculators including Age, BMI, EMI, GST, Percentage and Discount Calculators. Simple, fast and easy to use.">
+    <title>EasyToolBox - Free Online Calculators & Tools</title>
 
-<meta name="keywords" content="online calculators, free online tools, age calculator, BMI calculator, EMI calculator, GST calculator, percentage calculator, discount calculator">
+    <meta name="description" content="EasyToolBox offers free online calculators including Age, BMI, EMI, GST, Percentage and Discount Calculators. Simple, fast and easy to use.">
 
-<meta name="robots" content="index, follow">
+    <meta name="keywords" content="online calculators, free online tools, age calculator, BMI calculator, EMI calculator, GST calculator, percentage calculator, discount calculator">
 
-<link rel="canonical" href="https://rahulkumar661.github.io/easytoolbox/">
+    <meta name="robots" content="index, follow">
 
-<link rel="stylesheet" href="style.css">
-   
+    <link rel="canonical" href="https://rahulkumar661.github.io/easytoolbox/">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
 <nav class="navbar">
 
     <div class="nav-logo">
@@ -33,286 +34,206 @@
     </div>
 
 </nav>
-    <header>
+
+
+<header>
+
     <h1>Free Online Calculators & Tools</h1>
-       <p>Free, fast and easy-to-use online calculators for everyday calculations.</p>
-    </header>
+
+    <p>
+        Free, fast and easy-to-use online calculators for everyday calculations.
+    </p>
+
+</header>
 
 
-    <main class="container">
+<main class="container">
 
-        <h2>All Online Tools</h2>
-<input
-    type="text"
-    id="searchBox"
-    placeholder="🔍 Search tools..."
-    onkeyup="searchTools()"
->
+    <h2>All Online Tools</h2>
 
-        <div class="tools" id="tools"></div><div class="tool-card">
-    <h3>Percentage Calculator</h3>
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="🔍 Search tools..."
+        onkeyup="searchTools()"
+    >
 
-    <p>Calculate percentage easily.</p>
 
-    <a href="percentage-calculator.html">
-        <button>
-            Use Tool
-        </button>
-    </a>
-</div>
-        
-<div class="tool-card">
-    <h3>Age Calculator</h3>
+    <div class="tools" id="tools">
 
-    <p>Calculate your exact age.</p>
+        <div class="tool-card">
 
-    <a href="age-calculator.html">
-        <button>Use Tool</button>
-    </a>
-</div>
-          
+            <h3>Percentage Calculator</h3>
 
-<div class="tool-card">
-    <h3>GST Calculator</h3>
+            <p>Calculate percentage quickly and easily.</p>
 
-    <p>Calculate GST amount easily.</p>
-
-    <a href="gst-calculator.html">
-        <button>
-            Use Tool
-        </button>
-    </a>
-</div>
-            
-
- <div class="tool-card">
-    <h3>EMI Calculator</h3>
-
-    <p>Calculate your monthly EMI.</p>
-
-    <a href="emi-calculator.html">
-        <button>
-            Use Tool
-        </button>
-    </a>
-</div>          
-<div class="tool-card">
-    <h3>GST Calculator</h3>
-
-    <p>Calculate GST amount easily.</p>
-
-    <button onclick="showGSTCalculator()">
-        Use Tool
-    </button>
-</div>
-
-            <div class="tool-card">
-                <h3>Unit Converter</h3>
-
-                <p>Convert units easily.</p>
-
-                <button>
-                    Coming Soon
-                </button>
-            </div>
+            <a href="percentage-calculator.html">
+                <button>Use Tool</button>
+            </a>
 
         </div>
 
 
-        <section id="percentageTool">
-<section id="ageTool">
+        <div class="tool-card">
 
-    <h2>Age Calculator</h2>
+            <h3>Age Calculator</h3>
 
-    <p>Select your date of birth:</p>
+            <p>Calculate your exact age in years, months and days.</p>
 
-    <input
-        type="date"
-        id="dateOfBirth"
-    >
+            <a href="age-calculator.html">
+                <button>Use Tool</button>
+            </a>
 
-    <button onclick="calculateAge()">
-        Calculate Age
-    </button>
+        </div>
 
-    <h3 id="ageResult"></h3>
 
-</section>
-            <h2>Percentage Calculator</h2>
+        <div class="tool-card">
 
-            <input
-                type="number"
-                id="number"
-                placeholder="Enter number"
-            >
+            <h3>EMI Calculator</h3>
 
-            <input
-                type="number"
-                id="percentage"
-                placeholder="Enter percentage"
-            >
+            <p>Calculate your monthly loan EMI easily.</p>
 
-            <button onclick="calculatePercentage()">
-                Calculate
+            <a href="emi-calculator.html">
+                <button>Use Tool</button>
+            </a>
+
+        </div>
+
+
+        <div class="tool-card">
+
+            <h3>GST Calculator</h3>
+
+            <p>Calculate GST amount and total price easily.</p>
+
+            <a href="gst-calculator.html">
+                <button>Use Tool</button>
+            </a>
+
+        </div>
+
+
+        <div class="tool-card">
+
+            <h3>BMI Calculator</h3>
+
+            <p>Calculate your Body Mass Index easily.</p>
+
+            <a href="bmi-calculator.html">
+                <button>Use Tool</button>
+            </a>
+
+        </div>
+
+
+        <div class="tool-card">
+
+            <h3>Discount Calculator</h3>
+
+            <p>Calculate discount amount and final price.</p>
+
+            <a href="discount-calculator.html">
+                <button>Use Tool</button>
+            </a>
+
+        </div>
+
+
+        <div class="tool-card">
+
+            <h3>Unit Converter</h3>
+
+            <p>Convert different units easily.</p>
+
+            <button>
+                Coming Soon
             </button>
 
-            <h3 id="result"></h3>
+        </div>
 
-        </section>
-<section id="ageTool">
-
-    <h2>Age Calculator</h2>
-
-    <p>Select your date of birth:</p>
-
-    <input type="date" id="dateOfBirth">
-
-    <button onclick="calculateAge()">
-        Calculate Age
-    </button>
-
-    <h3 id="ageResult"></h3>
-
-</section><section id="emiTool">
-
-    <h2>EMI Calculator</h2>
-
-    <p>Enter your loan details:</p>
-
-    <input
-        type="number"
-        id="loanAmount"
-        placeholder="Loan Amount (₹)"
-    >
-
-    <input
-        type="number"
-        id="interestRate"
-        placeholder="Interest Rate (%)"
-    >
-
-    <input
-        type="number"
-        id="loanTenure"
-        placeholder="Loan Tenure (Years)"
-    >
-
-    <button onclick="calculateEMI()">
-        Calculate EMI
-    </button>
-
-    <h3 id="emiResult"></h3>
-
-    <p id="totalInterest"></p>
-
-    <p id="totalPayment"></p>
-
-</section>
- <section id="gstTool">
-
-    <h2>GST Calculator</h2>
-
-    <p>Enter amount and GST rate:</p>
-
-    <input
-        type="number"
-        id="gstAmount"
-        placeholder="Enter Amount (₹)"
-    >
-<div class="tool-card">
-    <h3>BMI Calculator</h3>
-
-    <p>Calculate your Body Mass Index.</p>
-<a href="bmi-calculator.html">
-    <button>
-        Use Tool
-    </button>
-</a>
-</div><div class="tool-card">
-
-   <div class="tool-card">
-
-    <h3>Discount Calculator</h3>
-
-    <p>Calculate discount and final price.</p>
-
-    <a href="discount-calculator.html">
-        <button>
-            Use Tool
-        </button>
-    </a>
-
-</div>
-    <input
-        type="number"
-        id="gstRate"
-        placeholder="GST Rate (%)"
-    >
-
-    <button onclick="calculateGST()">
-        Calculate GST
-    </button>
-
-    <h3 id="gstResult"></h3>
-
-    <p id="gstTotal"></p>
-
-</section> <section id="bmiTool">
-
-   <h3>BMI Calculator</h3>
-
-    <p>Enter your height and weight:</p>
-
-    <input
-        type="number"
-        id="weight"
-        placeholder="Weight (kg)"
-    >
-
-    <input
-        type="number"
-        id="height"
-        placeholder="Height (cm)"
-    >
-
-    <button onclick="calculateBMI()">
-        Calculate BMI
-    </button>
-
-    <h3 id="bmiResult"></h3>
-
-    <p id="bmiCategory"></p>
-<section id="discountTool">
-
-    <h2>Discount Calculator</h2>
-
-    <p>Enter price and discount:</p>
-
-    <input
-        type="number"
-        id="originalPrice"
-        placeholder="Original Price (₹)"
-    >
-
-    <input
-        type="number"
-        id="discountPercent"
-        placeholder="Discount (%)"
-    >
-
-    <button onclick="calculateDiscount()">
-        Calculate Discount
-    </button>
-
-    <h3 id="discountResult"></h3>
-
-    <p id="finalPrice"></p>
-
-</section>
-</section>  </main>
+    </div>
 
 
-   <footer>
+    <section class="content-section">
+
+        <h2>Free Online Calculators</h2>
+
+        <p>
+            EasyToolBox provides free and easy-to-use online calculators
+            for everyday calculations. You can calculate age, EMI, GST,
+            BMI, percentage and discounts quickly without installing any software.
+        </p>
+
+        <p>
+            Our calculators are designed to be simple, fast and mobile-friendly,
+            making everyday calculations easier for students, professionals
+            and everyone who needs quick results.
+        </p>
+
+    </section>
+
+
+    <section class="content-section">
+
+        <h2>Why Use EasyToolBox?</h2>
+
+        <ul>
+
+            <li>Free online calculators</li>
+
+            <li>Easy and simple to use</li>
+
+            <li>Fast calculations</li>
+
+            <li>Mobile-friendly tools</li>
+
+            <li>No software installation required</li>
+
+        </ul>
+
+    </section>
+
+
+    <section class="content-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+
+        <h3>Are EasyToolBox calculators free?</h3>
+
+        <p>
+            Yes. EasyToolBox provides free online calculators for everyday use.
+        </p>
+
+
+        <h3>Do I need to install an app?</h3>
+
+        <p>
+            No. You can use the calculators directly from your web browser.
+        </p>
+
+
+        <h3>Can I use EasyToolBox on mobile?</h3>
+
+        <p>
+            Yes. EasyToolBox is designed to work on mobile phones,
+            tablets and computers.
+        </p>
+
+
+        <h3>What calculators are available?</h3>
+
+        <p>
+            EasyToolBox currently provides Age, EMI, GST, Percentage,
+            BMI and Discount Calculators.
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer>
 
     <p>© 2026 EasyToolBox</p>
 
@@ -330,7 +251,8 @@
 
 </footer>
 
-    <script src="script.js"></script>
+
+<script src="script.js"></script>
 
 </body>
 
