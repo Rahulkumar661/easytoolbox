@@ -2,29 +2,29 @@
 <html lang="en">
 
 <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJLNNYKJY7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RJLNNYKJY7');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>BMI Calculator - Free Online BMI Calculator | EasyToolBox</title>
 
-    <meta name="description" content="Calculate your Body Mass Index with the free EasyToolBox BMI Calculator. Enter your height and weight to calculate BMI quickly.">
-
-    <meta name="keywords" content="BMI calculator, BMI calculator online, calculate BMI, body mass index calculator, BMI chart">
+    <meta name="description" content="Use the free EasyToolBox BMI Calculator to calculate your Body Mass Index using your weight in kilograms and height in centimetres.">
 
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://rahulkumar661.github.io/easytoolbox/bmi-calculator.html">
 
     <link rel="stylesheet" href="style.css">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJLNNYKJY7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-RJLNNYKJY7');
-</script>
 </head>
 
 <body>
@@ -61,21 +61,30 @@
 
         <p>Enter your height and weight:</p>
 
+        <label for="weight">Weight (kg):</label>
+
         <input
             type="number"
             id="weight"
-            placeholder="Weight (kg)"
+            placeholder="Enter weight in kg"
+            step="0.1"
         >
+
+
+        <label for="height">Height (cm):</label>
 
         <input
             type="number"
             id="height"
-            placeholder="Height (cm)"
+            placeholder="Enter height in cm"
+            step="0.1"
         >
+
 
         <button onclick="calculateBMI()">
             Calculate BMI
         </button>
+
 
         <h3 id="bmiResult"></h3>
 
@@ -89,8 +98,8 @@
         <h2>What is BMI?</h2>
 
         <p>
-            BMI stands for Body Mass Index. It is a commonly used
-            screening measure that relates body weight to height.
+            BMI stands for Body Mass Index. It is a commonly used screening
+            measure that relates body weight to height.
         </p>
 
     </section>
@@ -138,9 +147,9 @@
         </ul>
 
         <p>
-            These categories are general adult screening ranges.
-            BMI does not directly measure body fat and may not be
-            appropriate for everyone, including children and some athletes.
+            These categories are general adult screening ranges. BMI does
+            not directly measure body fat and may not be appropriate for
+            everyone, including children and some athletes.
         </p>
 
     </section>
@@ -170,17 +179,20 @@
             Yes. The EasyToolBox BMI Calculator is free to use.
         </p>
 
+
         <h3>What information do I need?</h3>
 
         <p>
             You need your weight in kilograms and height in centimetres.
         </p>
 
+
         <h3>Can I use the BMI Calculator on my phone?</h3>
 
         <p>
             Yes. The calculator works on mobile phones, tablets and computers.
         </p>
+
 
         <h3>Does BMI give a complete picture of health?</h3>
 
@@ -204,6 +216,7 @@
         <a href="contact.html">Contact</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms & Conditions</a>
+
     </div>
 
 </footer>
