@@ -1,148 +1,369 @@
+* {
+  box-sizing: border-box;
+  }
+
+html {
+scroll-behavior: smooth;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f7fb;
-    color: #222;
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+background: #f5f7fb;
+color: #222;
+line-height: 1.6;
 }
 
-header {
-    background: white;
-    text-align: center;
-    padding: 40px 20px;
-}
+/* ===============================
+Navigation
+================================ */
 
-h1 {
-    font-size: 42px;
-    margin: 0;
-}
-
-.container {
-    width: 90%;
-    max-width: 1000px;
-    margin: auto;
-}
-
-.tools {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.tool-card {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
-button {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-}#ageTool {
-    background: white;
-    padding: 30px;
-    margin-top: 30px;
-    border-radius: 15px;
-    text-align: center;
-}
-
-#ageTool input {
-    display: block;
-    width: 90%;
-    max-width: 400px;
-    margin: 15px auto;
-    padding: 13px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}.navbar {
-    background: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 5%;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+.navbar {
+background: #1e3a8a;
+color: white;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 16px 7%;
+gap: 20px;
 }
 
 .nav-logo {
-    font-size: 24px;
-    font-weight: bold;
+font-size: 24px;
+font-weight: bold;
+white-space: nowrap;
 }
 
 .nav-links {
-    display: flex;
-    gap: 25px;
+display: flex;
+align-items: center;
+gap: 22px;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #222;
-    font-weight: 500;
+color: white;
+text-decoration: none;
+font-weight: 600;
 }
 
 .nav-links a:hover {
-    text-decoration: underline;
-}@media (max-width: 600px) {
+text-decoration: underline;
+}
 
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
+/* ===============================
+Header
+================================ */
 
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
+header {
+text-align: center;
+background: white;
+padding: 55px 20px 45px;
+border-bottom: 1px solid #e5e7eb;
+}
 
-    h1 {
-        font-size: 32px;
-    }
+header h1 {
+margin: 0 0 12px;
+font-size: 38px;
+color: #1e3a8a;
+}
 
-    .container {
-        width: 92%;
-    }
+header p {
+margin: 0 auto;
+max-width: 700px;
+color: #555;
+font-size: 18px;
+}
 
-    .tools {
-        grid-template-columns: 1fr;
-    }
+/* ===============================
+Main Container
+================================ */
 
-    .tool-card {
-        padding: 20px;
-    }
+.container {
+width: 90%;
+max-width: 1100px;
+margin: 40px auto;
+}
 
-    input,
-    textarea {
-        width: 90%;
-        max-width: 100%;
-    }
+.container > h2 {
+text-align: center;
+color: #1e3a8a;
+margin-bottom: 25px;
+}
 
-}footer {
-    margin-top: 50px;
-    padding: 25px;
-    text-align: center;
-    background: #f5f5f5;
+/* ===============================
+Search Box
+================================ */
+
+#searchBox {
+display: block;
+width: 100%;
+max-width: 600px;
+margin: 0 auto 35px;
+padding: 14px 18px;
+border: 1px solid #cbd5e1;
+border-radius: 10px;
+font-size: 16px;
+outline: none;
+background: white;
+}
+
+#searchBox:focus {
+border-color: #2563eb;
+}
+
+/* ===============================
+Tools
+================================ */
+
+.tools {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 22px;
+}
+
+.tool-card {
+background: white;
+padding: 25px;
+border-radius: 12px;
+border: 1px solid #e5e7eb;
+box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+text-align: center;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+.tool-card h3 {
+margin-top: 0;
+color: #1e3a8a;
+font-size: 21px;
+}
+
+.tool-card p {
+color: #555;
+min-height: 50px;
+}
+
+/* ===============================
+Buttons
+================================ */
+
+button {
+background: #2563eb;
+color: white;
+border: none;
+border-radius: 8px;
+padding: 11px 20px;
+font-size: 15px;
+font-weight: 600;
+cursor: pointer;
+}
+
+button:hover {
+background: #1d4ed8;
+}
+
+a button {
+text-decoration: none;
+}
+
+/* ===============================
+Content Sections
+================================ */
+
+.content-section,
+.about-content {
+background: white;
+margin-top: 30px;
+padding: 30px;
+border-radius: 12px;
+border: 1px solid #e5e7eb;
+}
+
+.content-section h2,
+.about-content h1,
+.about-content h2 {
+color: #1e3a8a;
+}
+
+.content-section h3,
+.about-content h3 {
+color: #334155;
+}
+
+.content-section ul,
+.about-content ul {
+padding-left: 25px;
+}
+
+.content-section li,
+.about-content li {
+margin-bottom: 8px;
+}
+
+/* ===============================
+Calculator Pages
+================================ */
+
+.calculator-container {
+width: 90%;
+max-width: 600px;
+margin: 45px auto;
+background: white;
+padding: 30px;
+border-radius: 12px;
+border: 1px solid #e5e7eb;
+box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+}
+
+.calculator-container h1,
+.calculator-container h2 {
+text-align: center;
+color: #1e3a8a;
+}
+
+.calculator-container label {
+display: block;
+margin-top: 15px;
+margin-bottom: 6px;
+font-weight: 600;
+}
+
+.calculator-container input,
+.calculator-container select {
+width: 100%;
+padding: 12px;
+border: 1px solid #cbd5e1;
+border-radius: 7px;
+font-size: 16px;
+outline: none;
+}
+
+.calculator-container input:focus,
+.calculator-container select:focus {
+border-color: #2563eb;
+}
+
+.calculator-container button {
+display: block;
+margin: 22px auto 10px;
+}
+
+.result {
+margin-top: 20px;
+padding: 15px;
+background: #eff6ff;
+border-radius: 8px;
+text-align: center;
+font-weight: 600;
+}
+
+/* ===============================
+Footer
+================================ */
+
+footer {
+margin-top: 60px;
+padding: 25px 20px;
+background: #172554;
+color: white;
+text-align: center;
+}
+
+footer p {
+margin: 0 0 12px;
 }
 
 .footer-links {
-    margin-top: 12px;
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 18px;
 }
 
 .footer-links a {
-    text-decoration: none;
-    margin: 0 10px;
-    color: #333;
+color: white;
+text-decoration: none;
 }
 
 .footer-links a:hover {
-    text-decoration: underline;
+text-decoration: underline;
+}
+
+/* ===============================
+Mobile Responsive
+================================ */
+
+@media (max-width: 768px) {
+
+```
+.navbar {
+    flex-direction: column;
+    padding: 15px 20px;
+}
+
+.nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 18px;
+}
+
+header {
+    padding: 40px 18px;
+}
+
+header h1 {
+    font-size: 30px;
+}
+
+header p {
+    font-size: 16px;
+}
+
+.container {
+    width: 92%;
+    margin: 30px auto;
+}
+
+.tools {
+    grid-template-columns: 1fr;
+}
+
+.content-section,
+.about-content,
+.calculator-container {
+    padding: 22px;
+}
+```
+
+}
+
+@media (max-width: 480px) {
+
+```
+.nav-logo {
+    font-size: 22px;
+}
+
+.nav-links {
+    font-size: 14px;
+}
+
+header h1 {
+    font-size: 26px;
+}
+
+.tool-card {
+    padding: 20px;
+}
+
+.calculator-container {
+    width: 94%;
+    padding: 20px;
+}
+```
+
 }
