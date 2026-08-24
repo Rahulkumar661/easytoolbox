@@ -1,194 +1,325 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJLNNYKJY7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RJLNNYKJY7');
-    </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Percentage Calculator - Calculate Percentage Online | EasyToolBox</title>
-
-    <meta name="description" content="Use the free EasyToolBox Percentage Calculator to calculate percentages quickly and easily. Useful for marks, discounts, shopping and everyday calculations.">
-
-    <meta name="robots" content="index, follow">
-
-    <link rel="canonical" href="https://rahulkumar661.github.io/easytoolbox/percentage-calculator.html">
-
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-<nav class="navbar">
-
-    <div class="nav-logo">
-        EasyToolBox
-    </div>
-
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#tools">All Tools</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </div>
-
-</nav>
-
-
-<main class="container">
-
-    <h1>Percentage Calculator</h1>
-
-    <p>
-        Calculate percentages quickly and easily using our free online
-        Percentage Calculator. This tool is useful for marks, discounts,
-        shopping and everyday calculations.
-    </p>
-
-
-    <section>
-
-        <h2>Calculate Percentage</h2>
-
-        <label for="number">Enter Number:</label>
-
-        <input
-            type="number"
-            id="number"
-            placeholder="Enter number"
-        >
-
-        <label for="percentage">Enter Percentage:</label>
-
-        <input
-            type="number"
-            id="percentage"
-            placeholder="Enter percentage"
-        >
-
-        <button onclick="calculatePercentage()">
-            Calculate
-        </button>
-
-        <h3 id="percentageResult"></h3>
-
-    </section>
-
-
-    <section>
-
-        <h2>What is a Percentage?</h2>
-
-        <p>
-            A percentage is a way of expressing a number as a fraction
-            of 100. The symbol used for percentage is %.
-        </p>
-
-    </section>
-
-
-    <section>
-
-        <h2>Percentage Formula</h2>
-
-        <p>
-            Percentage of a number = Number × Percentage ÷ 100
-        </p>
-
-        <p>
-            For example, 20% of 500 is:
-        </p>
-
-        <p>
-            500 × 20 ÷ 100 = 100
-        </p>
-
-    </section>
-
-
-    <section>
-
-        <h2>How to Use the Percentage Calculator</h2>
-
-        <ol>
-            <li>Enter the number.</li>
-            <li>Enter the percentage.</li>
-            <li>Click the Calculate button.</li>
-            <li>Your result will be displayed instantly.</li>
-        </ol>
-
-    </section>
-
-
-    <section>
-
-        <h2>Why Use a Percentage Calculator?</h2>
-
-        <ul>
-            <li>Calculate percentages quickly.</li>
-            <li>Useful for discounts and shopping calculations.</li>
-            <li>Helpful for marks and everyday calculations.</li>
-            <li>Free and easy to use.</li>
-        </ul>
-
-    </section>
-
-
-    <section>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>Is the Percentage Calculator free?</h3>
-
-        <p>
-            Yes. The EasyToolBox Percentage Calculator is free to use.
-        </p>
-
-        <h3>What is 20% of 500?</h3>
-
-        <p>
-            20% of 500 is 100.
-        </p>
-
-        <h3>Can I use this calculator on my phone?</h3>
-
-        <p>
-            Yes. The calculator works on mobile phones, tablets and computers.
-        </p>
-
-    </section>
-
-</main>
-
-
-<footer>
-
-    <p>© 2026 EasyToolBox</p>
-
-    <div class="footer-links">
-
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
-
-    </div>
-
-</footer>
-
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
+* {
+  box-sizing: border-box;
+  }
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+background: #f5f7fb;
+color: #222;
+line-height: 1.6;
+}
+
+.navbar {
+background: #1e3a8a;
+color: white;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 16px 7%;
+gap: 20px;
+}
+
+.nav-logo {
+font-size: 24px;
+font-weight: bold;
+white-space: nowrap;
+}
+
+.nav-links {
+display: flex;
+align-items: center;
+gap: 22px;
+}
+
+.nav-links a {
+color: white;
+text-decoration: none;
+font-weight: 600;
+}
+
+.nav-links a:hover {
+text-decoration: underline;
+}
+
+header {
+text-align: center;
+background: white;
+padding: 55px 20px 45px;
+border-bottom: 1px solid #e5e7eb;
+}
+
+header h1 {
+margin: 0 0 12px;
+font-size: 38px;
+color: #1e3a8a;
+}
+
+header p {
+margin: 0 auto;
+max-width: 700px;
+color: #555;
+font-size: 18px;
+}
+
+.container {
+width: 90%;
+max-width: 1100px;
+margin: 40px auto;
+}
+
+.container > h2 {
+text-align: center;
+color: #1e3a8a;
+margin-bottom: 25px;
+}
+
+#searchBox {
+display: block;
+width: 100%;
+max-width: 600px;
+margin: 0 auto 35px;
+padding: 14px 18px;
+border: 1px solid #cbd5e1;
+border-radius: 10px;
+font-size: 16px;
+outline: none;
+background: white;
+}
+
+#searchBox:focus {
+border-color: #2563eb;
+}
+
+.tools {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 22px;
+}
+
+.tool-card {
+background: white;
+padding: 25px;
+border-radius: 12px;
+border: 1px solid #e5e7eb;
+box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+text-align: center;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+.tool-card h3 {
+margin-top: 0;
+color: #1e3a8a;
+font-size: 21px;
+}
+
+.tool-card p {
+color: #555;
+min-height: 50px;
+}
+
+button {
+background: #2563eb;
+color: white;
+border: none;
+border-radius: 8px;
+padding: 11px 20px;
+font-size: 15px;
+font-weight: 600;
+cursor: pointer;
+}
+
+button:hover {
+background: #1d4ed8;
+}
+
+.content-section,
+.about-content {
+background: white;
+margin-top: 30px;
+padding: 30px;
+border-radius: 12px;
+border: 1px solid #e5e7eb;
+}
+
+.content-section h2,
+.about-content h1,
+.about-content h2 {
+color: #1e3a8a;
+}
+
+.content-section h3,
+.about-content h3 {
+color: #334155;
+}
+
+.content-section ul,
+.about-content ul {
+padding-left: 25px;
+}
+
+.content-section li,
+.about-content li {
+margin-bottom: 8px;
+}
+
+.calculator-container {
+width: 90%;
+max-width: 600px;
+margin: 45px auto;
+background: white;
+padding: 30px;
+border-radius: 12px;
+border: 1px solid #e5e7eb;
+box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+}
+
+.calculator-container h1,
+.calculator-container h2 {
+text-align: center;
+color: #1e3a8a;
+}
+
+.calculator-container label {
+display: block;
+margin-top: 15px;
+margin-bottom: 6px;
+font-weight: 600;
+}
+
+.calculator-container input,
+.calculator-container select {
+width: 100%;
+padding: 12px;
+border: 1px solid #cbd5e1;
+border-radius: 7px;
+font-size: 16px;
+outline: none;
+}
+
+.calculator-container input:focus,
+.calculator-container select:focus {
+border-color: #2563eb;
+}
+
+.calculator-container button {
+display: block;
+margin: 22px auto 10px;
+}
+
+.result {
+margin-top: 20px;
+padding: 15px;
+background: #eff6ff;
+border-radius: 8px;
+text-align: center;
+font-weight: 600;
+}
+
+footer {
+margin-top: 60px;
+padding: 25px 20px;
+background: #172554;
+color: white;
+text-align: center;
+}
+
+footer p {
+margin: 0 0 12px;
+}
+
+.footer-links {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 18px;
+}
+
+.footer-links a {
+color: white;
+text-decoration: none;
+}
+
+.footer-links a:hover {
+text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+
+
+.navbar {
+    flex-direction: column;
+    padding: 15px 20px;
+}
+
+.nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 18px;
+}
+
+header {
+    padding: 40px 18px;
+}
+
+header h1 {
+    font-size: 30px;
+}
+
+header p {
+    font-size: 16px;
+}
+
+.container {
+    width: 92%;
+    margin: 30px auto;
+}
+
+.tools {
+    grid-template-columns: 1fr;
+}
+
+.content-section,
+.about-content,
+.calculator-container {
+    padding: 22px;
+}
+
+
+}
+
+@media (max-width: 480px) {
+
+
+.nav-logo {
+    font-size: 22px;
+}
+
+.nav-links {
+    font-size: 14px;
+}
+
+header h1 {
+    font-size: 26px;
+}
+
+.tool-card {
+    padding: 20px;
+}
+
+.calculator-container {
+    width: 94%;
+    padding: 20px;
+}
+
+
+}
