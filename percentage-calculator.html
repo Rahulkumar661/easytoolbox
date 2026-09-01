@@ -1,325 +1,101 @@
-* {
-  box-sizing: border-box;
-  }
 
-html {
-scroll-behavior: smooth;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Percentage Calculator - EasyToolBox</title>
+
+    <meta name="description" content="Free Percentage Calculator to calculate percentages quickly and easily.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="nav-logo">
+        EasyToolBox
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">All Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+</nav>
+
+<main class="calculator-container">
+
+    <h1>Percentage Calculator</h1>
+
+    <p style="text-align:center;">
+        Calculate percentages quickly and easily.
+    </p>
+
+    <label for="number">What is</label>
+
+    <input type="number" id="number" placeholder="Enter number">
+
+    <label for="percent">percent of</label>
+
+    <input type="number" id="percent" placeholder="Enter percentage">
+
+    <button onclick="calculatePercentage()">
+        Calculate
+    </button>
+
+    <div class="result" id="result">
+        Result will appear here
+    </div>
+
+</main>
+
+<footer>
+
+    <p>© 2026 EasyToolBox</p>
+
+    <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+    </div>
+
+</footer>
+
+<script>
+
+function calculatePercentage() {
+
+    const number = parseFloat(document.getElementById("number").value);
+    const percent = parseFloat(document.getElementById("percent").value);
+
+    const resultBox = document.getElementById("result");
+
+    if (isNaN(number) || isNaN(percent)) {
+
+        resultBox.innerHTML = "Please enter both numbers.";
+
+        return;
+    }
+
+    const result = (percent / 100) * number;
+
+    resultBox.innerHTML =
+        percent + "% of " + number + " = <strong>" +
+        result.toFixed(2) +
+        "</strong>";
 }
 
-body {
-margin: 0;
-font-family: Arial, Helvetica, sans-serif;
-background: #f5f7fb;
-color: #222;
-line-height: 1.6;
-}
+</script>
 
-.navbar {
-background: #1e3a8a;
-color: white;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 16px 7%;
-gap: 20px;
-}
+</body>
 
-.nav-logo {
-font-size: 24px;
-font-weight: bold;
-white-space: nowrap;
-}
-
-.nav-links {
-display: flex;
-align-items: center;
-gap: 22px;
-}
-
-.nav-links a {
-color: white;
-text-decoration: none;
-font-weight: 600;
-}
-
-.nav-links a:hover {
-text-decoration: underline;
-}
-
-header {
-text-align: center;
-background: white;
-padding: 55px 20px 45px;
-border-bottom: 1px solid #e5e7eb;
-}
-
-header h1 {
-margin: 0 0 12px;
-font-size: 38px;
-color: #1e3a8a;
-}
-
-header p {
-margin: 0 auto;
-max-width: 700px;
-color: #555;
-font-size: 18px;
-}
-
-.container {
-width: 90%;
-max-width: 1100px;
-margin: 40px auto;
-}
-
-.container > h2 {
-text-align: center;
-color: #1e3a8a;
-margin-bottom: 25px;
-}
-
-#searchBox {
-display: block;
-width: 100%;
-max-width: 600px;
-margin: 0 auto 35px;
-padding: 14px 18px;
-border: 1px solid #cbd5e1;
-border-radius: 10px;
-font-size: 16px;
-outline: none;
-background: white;
-}
-
-#searchBox:focus {
-border-color: #2563eb;
-}
-
-.tools {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 22px;
-}
-
-.tool-card {
-background: white;
-padding: 25px;
-border-radius: 12px;
-border: 1px solid #e5e7eb;
-box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-text-align: center;
-transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.tool-card:hover {
-transform: translateY(-4px);
-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
-}
-
-.tool-card h3 {
-margin-top: 0;
-color: #1e3a8a;
-font-size: 21px;
-}
-
-.tool-card p {
-color: #555;
-min-height: 50px;
-}
-
-button {
-background: #2563eb;
-color: white;
-border: none;
-border-radius: 8px;
-padding: 11px 20px;
-font-size: 15px;
-font-weight: 600;
-cursor: pointer;
-}
-
-button:hover {
-background: #1d4ed8;
-}
-
-.content-section,
-.about-content {
-background: white;
-margin-top: 30px;
-padding: 30px;
-border-radius: 12px;
-border: 1px solid #e5e7eb;
-}
-
-.content-section h2,
-.about-content h1,
-.about-content h2 {
-color: #1e3a8a;
-}
-
-.content-section h3,
-.about-content h3 {
-color: #334155;
-}
-
-.content-section ul,
-.about-content ul {
-padding-left: 25px;
-}
-
-.content-section li,
-.about-content li {
-margin-bottom: 8px;
-}
-
-.calculator-container {
-width: 90%;
-max-width: 600px;
-margin: 45px auto;
-background: white;
-padding: 30px;
-border-radius: 12px;
-border: 1px solid #e5e7eb;
-box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
-}
-
-.calculator-container h1,
-.calculator-container h2 {
-text-align: center;
-color: #1e3a8a;
-}
-
-.calculator-container label {
-display: block;
-margin-top: 15px;
-margin-bottom: 6px;
-font-weight: 600;
-}
-
-.calculator-container input,
-.calculator-container select {
-width: 100%;
-padding: 12px;
-border: 1px solid #cbd5e1;
-border-radius: 7px;
-font-size: 16px;
-outline: none;
-}
-
-.calculator-container input:focus,
-.calculator-container select:focus {
-border-color: #2563eb;
-}
-
-.calculator-container button {
-display: block;
-margin: 22px auto 10px;
-}
-
-.result {
-margin-top: 20px;
-padding: 15px;
-background: #eff6ff;
-border-radius: 8px;
-text-align: center;
-font-weight: 600;
-}
-
-footer {
-margin-top: 60px;
-padding: 25px 20px;
-background: #172554;
-color: white;
-text-align: center;
-}
-
-footer p {
-margin: 0 0 12px;
-}
-
-.footer-links {
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
-gap: 18px;
-}
-
-.footer-links a {
-color: white;
-text-decoration: none;
-}
-
-.footer-links a:hover {
-text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-
-
-.navbar {
-    flex-direction: column;
-    padding: 15px 20px;
-}
-
-.nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px 18px;
-}
-
-header {
-    padding: 40px 18px;
-}
-
-header h1 {
-    font-size: 30px;
-}
-
-header p {
-    font-size: 16px;
-}
-
-.container {
-    width: 92%;
-    margin: 30px auto;
-}
-
-.tools {
-    grid-template-columns: 1fr;
-}
-
-.content-section,
-.about-content,
-.calculator-container {
-    padding: 22px;
-}
-
-
-}
-
-@media (max-width: 480px) {
-
-
-.nav-logo {
-    font-size: 22px;
-}
-
-.nav-links {
-    font-size: 14px;
-}
-
-header h1 {
-    font-size: 26px;
-}
-
-.tool-card {
-    padding: 20px;
-}
-
-.calculator-container {
-    width: 94%;
-    padding: 20px;
-}
-
-
-}
+</html>
+```
