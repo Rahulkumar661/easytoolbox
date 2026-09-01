@@ -592,4 +592,214 @@ function convertUnit() {
         " " +
         unitOptions[type][to];
 }
+```javascript
+// ===============================
+// Unit Converter
+// ===============================
+
+const unitOptions = {
+
+    length: {
+        meter: 1,
+        kilometer: 1000,
+        centimeter: 0.01,
+        millimeter: 0.001,
+        mile: 1609.344,
+        yard: 0.9144,
+        foot: 0.3048,
+        inch: 0.0254
+    },
+
+    weight: {
+        kilogram: 1,
+        gram: 0.001,
+        milligram: 0.000001,
+        pound: 0.45359237,
+        ounce: 0.0283495
+    },
+
+    speed: {
+        "meter/second": 1,
+        "kilometer/hour": 0.277777778,
+        "mile/hour": 0.44704,
+        "foot/second": 0.3048
+    }
+
+};
+
+
+// Update From and To units
+
+function updateUnits() {
+
+    const type = document.getElementById("unitType").value;
+
+    const fromUnit = document.getElementById("fromUnit");
+    const toUnit = document.getElementById("toUnit");
+
+    fromUnit.innerHTML = "";
+    toUnit.innerHTML = "";
+
+    if (type === "temperature") {
+
+        const temperatureUnits = [
+            "Celsius",
+            "Fahrenheit",
+            "Kelvin"
+        ];
+
+        temperatureUnits.forEach(function(unit) {
+
+            const option1 = document.createElement("option");
+            option1.value = unit;
+            option1.textContent = unit;
+
+            const option2 = document.createElement("option");
+            option2.value = unit;
+            option2.textContent = unit;
+
+            fromUnit.appendChild(option1);
+            toUnit.appendChild(option2);
+
+        });
+
+        return;
+    }
+
+
+    Object.keys(unitOptions[type]).forEach(function(unit) {
+
+        const option1 = document.createElement("option");
+        option1.value = unit;
+        option1.textContent = unit;
+
+        const option2 = document.createElement("option");
+        option2.value = unit;
+        option2.textContent = unit;
+
+        fromUnit.appendChild(option1);
+        toUnit.appendChild(option2);
+
+    });
+
+}
+
+
+// Convert Units
+
+function convertUnit() {
+
+    const type = document.getElementById("unitType").value;
+
+    const value = parseFloat(
+        document.getElementById("unitValue").value
+    );
+
+    const from = document.getElementById("fromUnit").value;
+    const to = document.getElementById("toUnit").value;
+
+    const resultElement =
+        document.getElementById("unitResult");
+
+
+    if (isNaN(value)) {
+
+        resultElement.innerText =
+            "Please enter a valid value.";
+
+        return;
+    }
+
+
+    let result;
+
+
+    // Temperature conversion
+
+    if (type === "temperature") {
+
+        if (from === to) {
+
+            result = value;
+
+        } else if (
+            from === "Celsius" &&
+            to === "Fahrenheit"
+        ) {
+
+            result = (value * 9 / 5) + 32;
+
+        } else if (
+            from === "Fahrenheit" &&
+            to === "Celsius"
+        ) {
+
+            result = (value - 32) * 5 / 9;
+
+        } else if (
+            from === "Celsius" &&
+            to === "Kelvin"
+        ) {
+
+            result = value + 273.15;
+
+        } else if (
+            from === "Kelvin" &&
+            to === "Celsius"
+        ) {
+
+            result = value - 273.15;
+
+        } else if (
+            from === "Fahrenheit" &&
+            to === "Kelvin"
+        ) {
+
+            result =
+                (value - 32) * 5 / 9 + 273.15;
+
+        } else if (
+            from === "Kelvin" &&
+            to === "Fahrenheit"
+        ) {
+
+            result =
+                (value - 273.15) * 9 / 5 + 32;
+
+        }
+
+    }
+
+
+    // Length, Weight and Speed
+
+    else {
+
+        const baseValue =
+            value * unitOptions[type][from];
+
+        result =
+            baseValue / unitOptions[type][to];
+
+    }
+
+
+    resultElement.innerText =
+        value + " " + from +
+        " = " + result.toFixed(4) +
+        " " + to;
+
+}
+
+
+// Load units when page opens
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    if (document.getElementById("unitType")) {
+        updateUnits();
+    }
+
+});
 ```
+
