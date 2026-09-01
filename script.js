@@ -1,15 +1,19 @@
 // ===============================
 // TOOL SEARCH
 // ===============================
+
 function searchTools() {
+
     const search = document.getElementById("searchBox");
 
     if (!search) return;
 
     const value = search.value.toLowerCase();
+
     const cards = document.querySelectorAll(".tool-card");
 
     cards.forEach(function(card) {
+
         const text = card.innerText.toLowerCase();
 
         if (text.includes(value)) {
@@ -17,28 +21,142 @@ function searchTools() {
         } else {
             card.style.display = "none";
         }
+
     });
+}
+
+
+// ===============================
+// AGE CALCULATOR
+// ===============================
+
+function calculateAge() {
+
+    const birthDateValue =
+        document.getElementById("birthDate").value;
+
+    const result =
+        document.getElementById("ageResult");
+
+    if (!birthDateValue) {
+
+        result.textContent =
+            "Please select your date of birth.";
+
+        return;
+    }
+
+    const birthDate =
+        new Date(birthDateValue + "T00:00:00");
+
+    const today = new Date();
+
+    if (birthDate > today) {
+
+        result.textContent =
+            "Date of birth cannot be in the future.";
+
+        return;
+    }
+
+    let years =
+        today.getFullYear() -
+        birthDate.getFullYear();
+
+    let months =
+        today.getMonth() -
+        birthDate.getMonth();
+
+    let days =
+        today.getDate() -
+        birthDate.getDate();
+
+
+    if (days < 0) {
+
+        months--;
+
+        const previousMonth =
+            new Date(
+                today.getFullYear(),
+                today.getMonth(),
+                0
+            );
+
+        days += previousMonth.getDate();
+    }
+
+
+    if (months < 0) {
+
+        years--;
+
+        months += 12;
+    }
+
+
+    result.textContent =
+        "Your age is " +
+        years +
+        " years, " +
+        months +
+        " months and " +
+        days +
+        " days.";
+
 }
 
 
 // ===============================
 // PERCENTAGE CALCULATOR
 // ===============================
+
 function calculatePercentage() {
 
-    const value = parseFloat(document.getElementById("percentageValue").value);
-    const total = parseFloat(document.getElementById("percentageTotal").value);
-    const result = document.getElementById("percentageResult");
+    const value =
+        parseFloat(
+            document.getElementById(
+                "percentageValue"
+            ).value
+        );
 
-    if (isNaN(value) || isNaN(total) || total === 0) {
-        result.textContent = "Please enter valid values.";
+    const total =
+        parseFloat(
+            document.getElementById(
+                "percentageTotal"
+            ).value
+        );
+
+    const result =
+        document.getElementById(
+            "percentageResult"
+        );
+
+
+    if (
+        isNaN(value) ||
+        isNaN(total) ||
+        total === 0
+    ) {
+
+        result.textContent =
+            "Please enter valid values.";
+
         return;
     }
 
-    const percentage = (value / total) * 100;
+
+    const percentage =
+        (value / total) * 100;
+
 
     result.textContent =
-        value + " is " + percentage.toFixed(2) + "% of " + total;
+        value +
+        " is " +
+        percentage.toFixed(2) +
+        "% of " +
+        total;
+
 }
 
 
@@ -49,6 +167,7 @@ function calculatePercentage() {
 const units = {
 
     length: {
+
         meter: 1,
         kilometer: 1000,
         centimeter: 0.01,
@@ -57,20 +176,25 @@ const units = {
         yard: 0.9144,
         foot: 0.3048,
         inch: 0.0254
+
     },
 
     weight: {
+
         kilogram: 1,
         gram: 0.001,
         milligram: 0.000001,
         pound: 0.45359237,
         ounce: 0.0283495
+
     },
 
     speed: {
+
         "km/h": 1,
         "m/s": 3.6,
         "mph": 1.609344
+
     }
 
 };
@@ -82,18 +206,23 @@ const units = {
 
 function updateUnits() {
 
-    const type = document.getElementById("unitType");
+    const type =
+        document.getElementById("unitType");
 
     if (!type) return;
 
-    const fromUnit = document.getElementById("fromUnit");
-    const toUnit = document.getElementById("toUnit");
+
+    const fromUnit =
+        document.getElementById("fromUnit");
+
+    const toUnit =
+        document.getElementById("toUnit");
+
 
     fromUnit.innerHTML = "";
     toUnit.innerHTML = "";
 
 
-    // Temperature
     if (type.value === "temperature") {
 
         const temperatureUnits = [
@@ -102,15 +231,22 @@ function updateUnits() {
             "Kelvin"
         ];
 
+
         temperatureUnits.forEach(function(unit) {
 
-            const option1 = document.createElement("option");
+            const option1 =
+                document.createElement("option");
+
             option1.value = unit;
             option1.textContent = unit;
 
-            const option2 = document.createElement("option");
+
+            const option2 =
+                document.createElement("option");
+
             option2.value = unit;
             option2.textContent = unit;
+
 
             fromUnit.appendChild(option1);
             toUnit.appendChild(option2);
@@ -119,25 +255,32 @@ function updateUnits() {
 
     }
 
-    // Other units
     else {
 
-        Object.keys(units[type.value]).forEach(function(unit) {
+        Object.keys(units[type.value])
+            .forEach(function(unit) {
 
-            const option1 = document.createElement("option");
-            option1.value = unit;
-            option1.textContent = unit;
+                const option1 =
+                    document.createElement("option");
 
-            const option2 = document.createElement("option");
-            option2.value = unit;
-            option2.textContent = unit;
+                option1.value = unit;
+                option1.textContent = unit;
 
-            fromUnit.appendChild(option1);
-            toUnit.appendChild(option2);
 
-        });
+                const option2 =
+                    document.createElement("option");
+
+                option2.value = unit;
+                option2.textContent = unit;
+
+
+                fromUnit.appendChild(option1);
+                toUnit.appendChild(option2);
+
+            });
 
     }
+
 }
 
 
@@ -147,28 +290,40 @@ function updateUnits() {
 
 function convertUnit() {
 
-    const type = document.getElementById("unitType").value;
-    const from = document.getElementById("fromUnit").value;
-    const to = document.getElementById("toUnit").value;
+    const type =
+        document.getElementById("unitType").value;
+
+    const from =
+        document.getElementById("fromUnit").value;
+
+    const to =
+        document.getElementById("toUnit").value;
+
 
     const value =
-        parseFloat(document.getElementById("unitValue").value);
+        parseFloat(
+            document.getElementById(
+                "unitValue"
+            ).value
+        );
+
 
     const result =
-        document.getElementById("unitResult");
+        document.getElementById(
+            "unitResult"
+        );
 
 
     if (isNaN(value)) {
 
-        result.textContent = "Please enter a value.";
+        result.textContent =
+            "Please enter a value.";
 
         return;
     }
 
 
-    // ===============================
     // TEMPERATURE
-    // ===============================
 
     if (type === "temperature") {
 
@@ -179,13 +334,19 @@ function convertUnit() {
 
             celsius = value;
 
-        } else if (from === "Fahrenheit") {
+        }
 
-            celsius = (value - 32) * 5 / 9;
+        else if (from === "Fahrenheit") {
 
-        } else if (from === "Kelvin") {
+            celsius =
+                (value - 32) * 5 / 9;
 
-            celsius = value - 273.15;
+        }
+
+        else if (from === "Kelvin") {
+
+            celsius =
+                value - 273.15;
 
         }
 
@@ -197,41 +358,55 @@ function convertUnit() {
 
             converted = celsius;
 
-        } else if (to === "Fahrenheit") {
+        }
 
-            converted = (celsius * 9 / 5) + 32;
+        else if (to === "Fahrenheit") {
 
-        } else if (to === "Kelvin") {
+            converted =
+                (celsius * 9 / 5) + 32;
 
-            converted = celsius + 273.15;
+        }
+
+        else if (to === "Kelvin") {
+
+            converted =
+                celsius + 273.15;
 
         }
 
 
         result.textContent =
-            value + " " + from +
-            " = " + converted.toFixed(4) +
-            " " + to;
+            value +
+            " " +
+            from +
+            " = " +
+            converted.toFixed(4) +
+            " " +
+            to;
 
         return;
     }
 
 
-    // ===============================
     // LENGTH / WEIGHT / SPEED
-    // ===============================
 
     const baseValue =
         value * units[type][from];
+
 
     const convertedValue =
         baseValue / units[type][to];
 
 
     result.textContent =
-        value + " " + from +
-        " = " + convertedValue.toFixed(4) +
-        " " + to;
+        value +
+        " " +
+        from +
+        " = " +
+        convertedValue.toFixed(4) +
+        " " +
+        to;
+
 }
 
 
@@ -239,7 +414,9 @@ function convertUnit() {
 // START UNIT CONVERTER
 // ===============================
 
-if (document.getElementById("unitType")) {
+if (
+    document.getElementById("unitType")
+) {
 
     updateUnits();
 
