@@ -1,104 +1,188 @@
-```html
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+// ===============================
+// TOOL SEARCH
+// ===============================
 
-    <title>Unit Converter - EasyToolBox</title>
+function searchTools() {
+    const search = document.getElementById("searchBox");
 
-    <meta name="description" content="Free online unit converter for length, weight, temperature and speed.">
+    if (!search) return;
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    const value = search.value.toLowerCase();
+    const cards = document.querySelectorAll(".tool-card");
 
-<body>
+    cards.forEach(function(card) {
+        const text = card.innerText.toLowerCase();
 
-<nav class="navbar">
-
-    <div class="nav-logo">
-        EasyToolBox
-    </div>
-
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#tools">All Tools</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </div>
-
-</nav>
+        if (text.includes(value)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
 
 
-<main class="calculator-container">
+// ===============================
+// UNIT CONVERTER
+// ===============================
 
-    <h1>Unit Converter</h1>
+const units = {
 
-    <label for="unitType">Select Conversion Type</label>
+    length: {
+        meter: 1,
+        kilometer: 1000,
+        centimeter: 0.01,
+        millimeter: 0.001,
+        mile: 1609.344,
+        yard: 0.9144,
+        foot: 0.3048,
+        inch: 0.0254
+    },
 
-    <select id="unitType" onchange="updateUnits()">
-        <option value="length">Length</option>
-        <option value="weight">Weight</option>
-        <option value="temperature">Temperature</option>
-        <option value="speed">Speed</option>
-    </select>
+    weight: {
+        kilogram: 1,
+        gram: 0.001,
+        milligram: 0.000001,
+        pound: 0.45359237,
+        ounce: 0.0283495
+    },
 
-
-    <label for="fromUnit">From</label>
-
-    <select id="fromUnit"></select>
-
-
-    <label for="toUnit">To</label>
-
-    <select id="toUnit"></select>
-
-
-    <label for="unitValue">Enter Value</label>
-
-    <input
-        type="number"
-        id="unitValue"
-        placeholder="Enter value"
-    >
-
-
-    <button onclick="convertUnit()">
-        Convert
-    </button>
+    speed: {
+        "km/h": 1,
+        "m/s": 3.6,
+        "mph": 1.609344
+    }
+};
 
 
-    <div class="result">
+function updateUnits() {
 
-        <p id="unitResult">
-            Enter a value and click Convert.
-        </p>
+    const type = document.getElementById("unitType");
 
-    </div>
+    if (!type) return;
 
-</main>
+    const fromUnit = document.getElementById("fromUnit");
+    const toUnit = document.getElementById("toUnit");
+
+    fromUnit.innerHTML = "";
+    toUnit.innerHTML = "";
+
+    if (type.value === "temperature") {
+
+        const temperatureUnits = [
+            "Celsius",
+            "Fahrenheit",
+            "Kelvin"
+        ];
+
+        temperatureUnits.forEach(function(unit) {
+
+            const option1 = document.createElement("option");
+            option1.value = unit;
+            option1.textContent = unit;
+
+            const option2 = document.createElement("option");
+            option2.value = unit;
+            option2.textContent = unit;
+
+            fromUnit.appendChild(option1);
+            toUnit.appendChild(option2);
+        });
+
+    } else {
+
+        Object.keys(units[type.value]).forEach(function(unit) {
+
+            const option1 = document.createElement("option");
+            option1.value = unit;
+            option1.textContent = unit;
+
+            const option2 = document.createElement("option");
+            option2.value = unit;
+            option2.textContent = unit;
+
+            fromUnit.appendChild(option1);
+            toUnit.appendChild(option2);
+        });
+    }
+}
 
 
-<footer>
+// ===============================
+// CONVERT UNIT
+// ===============================
 
-    <p>© 2026 EasyToolBox</p>
+function convertUnit() {
 
-    <div class="footer-links">
+    const type = document.getElementById("unitType").value;
+    const from = document.getElementById("fromUnit").value;
+    const to = document.getElementById("toUnit").value;
+    const value = parseFloat(document.getElementById("unitValue").value);
 
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
+    const result = document.getElementById("unitResult");
 
-    </div>
-
-</footer>
+    if (isNaN(value)) {
+        result.textContent = "Please enter a value.";
+        return;
+    }
 
 
-<script src="script.js"></script>
+    // Temperature
+    if (type === "temperature") {
 
-</body>
+        let celsius;
 
-</html>
-```
+        if (from === "Celsius") {
+            celsius = value;
+        }
+
+        else if (from === "Fahrenheit") {
+            celsius = (value - 32) * 5 / 9;
+        }
+
+        else if (from === "Kelvin") {
+            celsius = value - 273.15;
+        }
+
+
+        let converted;
+
+        if (to === "Celsius") {
+            converted = celsius;
+        }
+
+        else if (to === "Fahrenheit") {
+            converted = (celsius * 9 / 5) + 32;
+        }
+
+        else if (to === "Kelvin") {
+            converted = celsius + 273.15;
+        }
+
+        result.textContent =
+            value + " " + from + " = " +
+            converted.toFixed(4) + " " + to;
+
+        return;
+    }
+
+
+    // Length, Weight, Speed
+    const baseValue = value * units[type][from];
+
+    const convertedValue = baseValue / units[type][to];
+
+    result.textContent =
+        value + " " + from + " = " +
+        convertedValue.toFixed(4) + " " + to;
+}
+
+
+// ===============================
+// START UNIT CONVERTER
+// ===============================
+
+if (document.getElementById("unitType")) {
+    updateUnits();
+}
