@@ -1,3 +1,4 @@
+```javascript
 // ===============================
 // Percentage Calculator
 // ===============================
@@ -45,6 +46,11 @@ function calculateAge() {
     const birthDate = new Date(dob);
     const today = new Date();
 
+    if (birthDate > today) {
+        ageResult.innerText = "Date of birth cannot be in the future.";
+        return;
+    }
+
     let age = today.getFullYear() - birthDate.getFullYear();
 
     const month = today.getMonth() - birthDate.getMonth();
@@ -56,7 +62,8 @@ function calculateAge() {
         age--;
     }
 
-    ageResult.innerText = "Your age is " + age + " years.";
+    ageResult.innerText =
+        "Your age is " + age + " years.";
 }
 
 
@@ -92,6 +99,7 @@ function calculateEMI() {
         isNaN(interestRate) ||
         isNaN(loanTenure) ||
         loanAmount <= 0 ||
+        interestRate < 0 ||
         loanTenure <= 0
     ) {
         document.getElementById("emiResult").innerText =
@@ -250,6 +258,7 @@ function searchTools() {
         document.querySelectorAll(".tool-card");
 
     tools.forEach(function(tool) {
+
         const heading = tool.querySelector("h3");
 
         if (!heading) {
@@ -260,7 +269,7 @@ function searchTools() {
             heading.innerText.toLowerCase();
 
         if (toolName.includes(searchText)) {
-            tool.style.display = "block";
+            tool.style.display = "";
         } else {
             tool.style.display = "none";
         }
@@ -323,3 +332,264 @@ function calculateDiscount() {
         "Final Price: ₹" +
         finalAmount.toFixed(2);
 }
+
+
+// ===============================
+// Unit Converter
+// ===============================
+
+const unitOptions = {
+
+    length: {
+        meter: "Meter",
+        kilometer: "Kilometer",
+        centimeter: "Centimeter",
+        millimeter: "Millimeter",
+        mile: "Mile",
+        yard: "Yard",
+        foot: "Foot",
+        inch: "Inch"
+    },
+
+    weight: {
+        kilogram: "Kilogram",
+        gram: "Gram",
+        milligram: "Milligram",
+        pound: "Pound",
+        ounce: "Ounce"
+    },
+
+    temperature: {
+        celsius: "Celsius",
+        fahrenheit: "Fahrenheit",
+        kelvin: "Kelvin"
+    },
+
+    volume: {
+        liter: "Liter",
+        milliliter: "Milliliter",
+        cubicMeter: "Cubic Meter",
+        gallon: "Gallon",
+        quart: "Quart",
+        pint: "Pint"
+    },
+
+    speed: {
+        kmh: "Kilometer / Hour",
+        mph: "Mile / Hour",
+        ms: "Meter / Second",
+        knot: "Knot"
+    },
+
+    time: {
+        second: "Second",
+        minute: "Minute",
+        hour: "Hour",
+        day: "Day",
+        week: "Week"
+    }
+};
+
+
+function updateUnits() {
+
+    const typeElement =
+        document.getElementById("conversionType");
+
+    const fromElement =
+        document.getElementById("fromUnit");
+
+    const toElement =
+        document.getElementById("toUnit");
+
+    if (!typeElement || !fromElement || !toElement) {
+        return;
+    }
+
+    const type = typeElement.value;
+
+    fromElement.innerHTML = "";
+    toElement.innerHTML = "";
+
+    Object.entries(unitOptions[type]).forEach(
+        function ([value, text]) {
+
+            const fromOption =
+                document.createElement("option");
+
+            fromOption.value = value;
+            fromOption.textContent = text;
+
+            fromElement.appendChild(fromOption);
+
+
+            const toOption =
+                document.createElement("option");
+
+            toOption.value = value;
+            toOption.textContent = text;
+
+            toElement.appendChild(toOption);
+        }
+    );
+
+    if (toElement.options.length > 1) {
+        toElement.selectedIndex = 1;
+    }
+}
+
+
+function convertUnit() {
+
+    const type =
+        document.getElementById("conversionType").value;
+
+    const from =
+        document.getElementById("fromUnit").value;
+
+    const to =
+        document.getElementById("toUnit").value;
+
+    const value =
+        parseFloat(document.getElementById("unitValue").value);
+
+    const resultElement =
+        document.getElementById("unitResult");
+
+
+    if (isNaN(value)) {
+
+        resultElement.innerText =
+            "Please enter a value to convert.";
+
+        return;
+    }
+
+
+    let result;
+
+
+    // Length
+    if (type === "length") {
+
+        const units = {
+            meter: 1,
+            kilometer: 1000,
+            centimeter: 0.01,
+            millimeter: 0.001,
+            mile: 1609.344,
+            yard: 0.9144,
+            foot: 0.3048,
+            inch: 0.0254
+        };
+
+        result =
+            value * units[from] / units[to];
+    }
+
+
+    // Weight
+    else if (type === "weight") {
+
+        const units = {
+            kilogram: 1,
+            gram: 0.001,
+            milligram: 0.000001,
+            pound: 0.45359237,
+            ounce: 0.028349523125
+        };
+
+        result =
+            value * units[from] / units[to];
+    }
+
+
+    // Temperature
+    else if (type === "temperature") {
+
+        let celsius;
+
+        if (from === "celsius") {
+            celsius = value;
+        }
+
+        else if (from === "fahrenheit") {
+            celsius = (value - 32) * 5 / 9;
+        }
+
+        else if (from === "kelvin") {
+            celsius = value - 273.15;
+        }
+
+
+        if (to === "celsius") {
+            result = celsius;
+        }
+
+        else if (to === "fahrenheit") {
+            result = (celsius * 9 / 5) + 32;
+        }
+
+        else if (to === "kelvin") {
+            result = celsius + 273.15;
+        }
+    }
+
+
+    // Volume
+    else if (type === "volume") {
+
+        const units = {
+            liter: 1,
+            milliliter: 0.001,
+            cubicMeter: 1000,
+            gallon: 3.785411784,
+            quart: 0.946352946,
+            pint: 0.473176473
+        };
+
+        result =
+            value * units[from] / units[to];
+    }
+
+
+    // Speed
+    else if (type === "speed") {
+
+        const units = {
+            kmh: 1,
+            mph: 1.609344,
+            ms: 3.6,
+            knot: 1.852
+        };
+
+        result =
+            value * units[from] / units[to];
+    }
+
+
+    // Time
+    else if (type === "time") {
+
+        const units = {
+            second: 1,
+            minute: 60,
+            hour: 3600,
+            day: 86400,
+            week: 604800
+        };
+
+        result =
+            value * units[from] / units[to];
+    }
+
+
+    resultElement.innerText =
+        value + " " +
+        unitOptions[type][from] +
+        " = " +
+        result.toFixed(6).replace(/\.?0+$/, "") +
+        " " +
+        unitOptions[type][to];
+}
+```
