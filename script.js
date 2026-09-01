@@ -1,21 +1,18 @@
-
 // ===============================
-// SEARCH TOOLS
+// TOOL SEARCH
 // ===============================
-
 function searchTools() {
-    const input = document.getElementById("searchBox");
+    const search = document.getElementById("searchBox");
 
-    if (!input) return;
+    if (!search) return;
 
-    const searchText = input.value.toLowerCase();
-
+    const value = search.value.toLowerCase();
     const cards = document.querySelectorAll(".tool-card");
 
     cards.forEach(function(card) {
         const text = card.innerText.toLowerCase();
 
-        if (text.includes(searchText)) {
+        if (text.includes(value)) {
             card.style.display = "";
         } else {
             card.style.display = "none";
@@ -27,23 +24,20 @@ function searchTools() {
 // ===============================
 // PERCENTAGE CALCULATOR
 // ===============================
-
 function calculatePercentage() {
 
-    const value = parseFloat(document.getElementById("percentageValue")?.value);
-    const total = parseFloat(document.getElementById("percentageTotal")?.value);
+    const value = parseFloat(document.getElementById("percentageValue").value);
+    const total = parseFloat(document.getElementById("percentageTotal").value);
     const result = document.getElementById("percentageResult");
 
-    if (!result) return;
-
     if (isNaN(value) || isNaN(total) || total === 0) {
-        result.innerHTML = "Please enter valid values.";
+        result.textContent = "Please enter valid values.";
         return;
     }
 
     const percentage = (value / total) * 100;
 
-    result.innerHTML =
+    result.textContent =
         value + " is " + percentage.toFixed(2) + "% of " + total;
 }
 
@@ -52,80 +46,98 @@ function calculatePercentage() {
 // UNIT CONVERTER
 // ===============================
 
-const unitData = {
+const units = {
 
     length: {
-        units: {
-            "Meter": 1,
-            "Kilometer": 1000,
-            "Centimeter": 0.01,
-            "Millimeter": 0.001,
-            "Mile": 1609.344,
-            "Yard": 0.9144,
-            "Foot": 0.3048,
-            "Inch": 0.0254
-        }
+        meter: 1,
+        kilometer: 1000,
+        centimeter: 0.01,
+        millimeter: 0.001,
+        mile: 1609.344,
+        yard: 0.9144,
+        foot: 0.3048,
+        inch: 0.0254
     },
 
     weight: {
-        units: {
-            "Kilogram": 1,
-            "Gram": 0.001,
-            "Milligram": 0.000001,
-            "Pound": 0.45359237,
-            "Ounce": 0.0283495
-        }
+        kilogram: 1,
+        gram: 0.001,
+        milligram: 0.000001,
+        pound: 0.45359237,
+        ounce: 0.0283495
     },
 
     speed: {
-        units: {
-            "m/s": 1,
-            "km/h": 0.277777778,
-            "mph": 0.44704,
-            "ft/s": 0.3048
-        }
-    },
-
-    temperature: {
-        units: {
-            "Celsius": "C",
-            "Fahrenheit": "F",
-            "Kelvin": "K"
-        }
+        "km/h": 1,
+        "m/s": 3.6,
+        "mph": 1.609344
     }
+
 };
 
 
 // ===============================
-// UPDATE UNIT DROPDOWNS
+// UPDATE UNITS
 // ===============================
 
 function updateUnits() {
 
-    const type = document.getElementById("unitType")?.value;
+    const type = document.getElementById("unitType");
+
+    if (!type) return;
+
     const fromUnit = document.getElementById("fromUnit");
     const toUnit = document.getElementById("toUnit");
-
-    if (!type || !fromUnit || !toUnit) return;
 
     fromUnit.innerHTML = "";
     toUnit.innerHTML = "";
 
-    const units = Object.keys(unitData[type].units);
 
-    units.forEach(function(unit) {
+    // Temperature
+    if (type.value === "temperature") {
 
-        const option1 = document.createElement("option");
-        option1.value = unit;
-        option1.textContent = unit;
+        const temperatureUnits = [
+            "Celsius",
+            "Fahrenheit",
+            "Kelvin"
+        ];
 
-        const option2 = document.createElement("option");
-        option2.value = unit;
-        option2.textContent = unit;
+        temperatureUnits.forEach(function(unit) {
 
-        fromUnit.appendChild(option1);
-        toUnit.appendChild(option2);
-    });
+            const option1 = document.createElement("option");
+            option1.value = unit;
+            option1.textContent = unit;
+
+            const option2 = document.createElement("option");
+            option2.value = unit;
+            option2.textContent = unit;
+
+            fromUnit.appendChild(option1);
+            toUnit.appendChild(option2);
+
+        });
+
+    }
+
+    // Other units
+    else {
+
+        Object.keys(units[type.value]).forEach(function(unit) {
+
+            const option1 = document.createElement("option");
+            option1.value = unit;
+            option1.textContent = unit;
+
+            const option2 = document.createElement("option");
+            option2.value = unit;
+            option2.textContent = unit;
+
+            fromUnit.appendChild(option1);
+            toUnit.appendChild(option2);
+
+        });
+
+    }
 }
 
 
@@ -135,79 +147,100 @@ function updateUnits() {
 
 function convertUnit() {
 
-    const type = document.getElementById("unitType")?.value;
-    const from = document.getElementById("fromUnit")?.value;
-    const to = document.getElementById("toUnit")?.value;
-    const value = parseFloat(document.getElementById("unitValue")?.value);
-    const result = document.getElementById("unitResult");
+    const type = document.getElementById("unitType").value;
+    const from = document.getElementById("fromUnit").value;
+    const to = document.getElementById("toUnit").value;
 
-    if (!result) return;
+    const value =
+        parseFloat(document.getElementById("unitValue").value);
+
+    const result =
+        document.getElementById("unitResult");
+
 
     if (isNaN(value)) {
-        result.innerHTML = "Please enter a valid value.";
+
+        result.textContent = "Please enter a value.";
+
         return;
     }
 
 
-    // Temperature conversion
+    // ===============================
+    // TEMPERATURE
+    // ===============================
 
     if (type === "temperature") {
 
         let celsius;
 
+
         if (from === "Celsius") {
+
             celsius = value;
-        } 
-        else if (from === "Fahrenheit") {
+
+        } else if (from === "Fahrenheit") {
+
             celsius = (value - 32) * 5 / 9;
-        } 
-        else if (from === "Kelvin") {
+
+        } else if (from === "Kelvin") {
+
             celsius = value - 273.15;
+
         }
 
 
         let converted;
 
+
         if (to === "Celsius") {
+
             converted = celsius;
-        } 
-        else if (to === "Fahrenheit") {
+
+        } else if (to === "Fahrenheit") {
+
             converted = (celsius * 9 / 5) + 32;
-        } 
-        else if (to === "Kelvin") {
+
+        } else if (to === "Kelvin") {
+
             converted = celsius + 273.15;
+
         }
 
-        result.innerHTML =
-            value + " " + from + " = " +
-            converted.toFixed(4) + " " + to;
+
+        result.textContent =
+            value + " " + from +
+            " = " + converted.toFixed(4) +
+            " " + to;
 
         return;
     }
 
 
-    // Length, Weight and Speed conversion
+    // ===============================
+    // LENGTH / WEIGHT / SPEED
+    // ===============================
 
-    const fromFactor = unitData[type].units[from];
-    const toFactor = unitData[type].units[to];
+    const baseValue =
+        value * units[type][from];
 
-    const baseValue = value * fromFactor;
-    const convertedValue = baseValue / toFactor;
+    const convertedValue =
+        baseValue / units[type][to];
 
-    result.innerHTML =
-        value + " " + from + " = " +
-        convertedValue.toFixed(4) + " " + to;
+
+    result.textContent =
+        value + " " + from +
+        " = " + convertedValue.toFixed(4) +
+        " " + to;
 }
 
 
 // ===============================
-// LOAD UNIT CONVERTER
+// START UNIT CONVERTER
 // ===============================
 
-document.addEventListener("DOMContentLoaded", function() {
+if (document.getElementById("unitType")) {
 
-    if (document.getElementById("unitType")) {
-        updateUnits();
-    }
+    updateUnits();
 
-});
+}
