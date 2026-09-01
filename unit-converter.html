@@ -1,0 +1,136 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Unit Converter - EasyToolBox</title>
+
+    <meta name="description" content="Free online unit converter. Convert length, weight, temperature, speed, time and volume units easily.">
+
+    <meta name="keywords" content="unit converter, length converter, weight converter, temperature converter, speed converter, volume converter, time converter">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://rahulkumar661.github.io/easytoolbox/unit-converter.html">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="nav-logo">
+        EasyToolBox
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">All Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+</nav>
+
+
+<main class="calculator-container">
+
+    <h1>Unit Converter</h1>
+
+    <p style="text-align:center;">
+        Convert length, weight, temperature, volume, speed and time units.
+    </p>
+
+
+    <label for="conversionType">
+        Conversion Type
+    </label>
+
+    <select id="conversionType" onchange="updateUnits()">
+
+        <option value="length">Length</option>
+
+        <option value="weight">Weight</option>
+
+        <option value="temperature">Temperature</option>
+
+        <option value="volume">Volume</option>
+
+        <option value="speed">Speed</option>
+
+        <option value="time">Time</option>
+
+    </select>
+
+
+    <label for="fromUnit">
+        From
+    </label>
+
+    <select id="fromUnit"></select>
+
+
+    <label for="toUnit">
+        To
+    </label>
+
+    <select id="toUnit"></select>
+
+
+    <label for="unitValue">
+        Enter Value
+    </label>
+
+    <input
+        type="number"
+        id="unitValue"
+        placeholder="Enter value"
+        step="any"
+    >
+
+
+    <button onclick="convertUnit()">
+        Convert
+    </button>
+
+
+    <div class="result" id="unitResult">
+        Enter a value and click Convert.
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>© 2026 EasyToolBox</p>
+
+    <div class="footer-links">
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="privacy.html">Privacy Policy</a>
+
+        <a href="terms.html">Terms & Conditions</a>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+<script>
+    updateUnits();
+</script>
+
+</body>
+
+</html>
+```
