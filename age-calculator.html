@@ -29,59 +29,90 @@
 
 </nav>
 
-
 <main class="calculator-container">
 
     <h1>Age Calculator</h1>
 
-    <label for="birthDate">Enter Your Date of Birth</label>
+    <label for="birthDate">Select your date of birth:</label>
 
     <input type="date" id="birthDate">
 
-    <button onclick="calculateAge()">
+    <button type="button" onclick="calculateAge()">
         Calculate Age
     </button>
 
     <div class="result">
-
         <p id="ageResult">
-            Enter your date of birth and click Calculate.
+            Your age will appear here.
         </p>
-
     </div>
 
 </main>
 
+<section class="content-section">
+
+    <h2>What is an Age Calculator?</h2>
+
+    <p>
+        An Age Calculator is an online tool that calculates a person's
+        age from their date of birth to the current date.
+    </p>
+
+    <h2>How to Calculate Your Age</h2>
+
+    <p>
+        Select your date of birth above and click the "Calculate Age"
+        button. The calculator will show your age in years, months and days.
+    </p>
+
+    <h2>Why Use an Age Calculator?</h2>
+
+    <ul>
+        <li>Calculate your exact age quickly.</li>
+        <li>Easy to use on mobile and computer.</li>
+        <li>No registration required.</li>
+        <li>Free to use.</li>
+    </ul>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is the Age Calculator free?</h3>
+    <p>Yes. The EasyToolBox Age Calculator is free to use.</p>
+
+    <h3>What information do I need?</h3>
+    <p>You only need to enter your date of birth.</p>
+
+    <h3>Can I use this calculator on my phone?</h3>
+    <p>Yes. The calculator works on mobile phones, tablets and computers.</p>
+
+</section>
 
 <footer>
 
     <p>© 2026 EasyToolBox</p>
 
     <div class="footer-links">
-
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms & Conditions</a>
-
     </div>
 
 </footer>
-
 
 <script>
 
 function calculateAge() {
 
-    const birthDateInput = document.getElementById("birthDate").value;
+    const birthDateValue = document.getElementById("birthDate").value;
     const result = document.getElementById("ageResult");
 
-    if (!birthDateInput) {
+    if (!birthDateValue) {
         result.textContent = "Please select your date of birth.";
         return;
     }
 
-    const birthDate = new Date(birthDateInput + "T00:00:00");
+    const birthDate = new Date(birthDateValue + "T00:00:00");
     const today = new Date();
 
     if (birthDate > today) {
