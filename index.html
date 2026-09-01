@@ -1,29 +1,36 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJLNNYKJY7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-RJLNNYKJY7');
-</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>EasyToolBox - Free Online Calculators & Tools</title>
 
-    <meta name="description" content="EasyToolBox offers free online calculators including Age, BMI, EMI, GST, Percentage and Discount Calculators. Simple, fast and easy to use.">
+    <meta name="description" content="EasyToolBox offers free online calculators and useful online tools including Age, BMI, EMI, GST, Percentage, Discount and Unit Converter. Simple, fast and free to use.">
 
-    <meta name="keywords" content="online calculators, free online tools, age calculator, BMI calculator, EMI calculator, GST calculator, percentage calculator, discount calculator">
+    <meta name="keywords" content="online calculators, free online tools, age calculator, BMI calculator, EMI calculator, GST calculator, percentage calculator, discount calculator, unit converter">
 
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://rahulkumar661.github.io/easytoolbox/">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJLNNYKJY7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-RJLNNYKJY7');
+    </script>
+
 </head>
 
 <body>
@@ -49,7 +56,8 @@
     <h1>Free Online Calculators & Tools</h1>
 
     <p>
-        Free, fast and easy-to-use online calculators for everyday calculations.
+        Free, fast and easy-to-use online calculators and tools
+        for everyday calculations.
     </p>
 
 </header>
@@ -64,16 +72,22 @@
         id="searchBox"
         placeholder="🔍 Search tools..."
         onkeyup="searchTools()"
+        aria-label="Search online tools"
     >
 
 
     <div class="tools" id="tools">
 
+
+        <!-- Percentage Calculator -->
+
         <div class="tool-card">
 
             <h3>Percentage Calculator</h3>
 
-            <p>Calculate percentage quickly and easily.</p>
+            <p>
+                Calculate percentages quickly and easily.
+            </p>
 
             <a href="percentage-calculator.html">
                 <button>Use Tool</button>
@@ -82,11 +96,15 @@
         </div>
 
 
+        <!-- Age Calculator -->
+
         <div class="tool-card">
 
             <h3>Age Calculator</h3>
 
-            <p>Calculate your exact age in years, months and days.</p>
+            <p>
+                Calculate your age in years, months and days.
+            </p>
 
             <a href="age-calculator.html">
                 <button>Use Tool</button>
@@ -95,11 +113,15 @@
         </div>
 
 
+        <!-- EMI Calculator -->
+
         <div class="tool-card">
 
             <h3>EMI Calculator</h3>
 
-            <p>Calculate your monthly loan EMI easily.</p>
+            <p>
+                Calculate monthly loan EMI, interest and total payment.
+            </p>
 
             <a href="emi-calculator.html">
                 <button>Use Tool</button>
@@ -108,11 +130,15 @@
         </div>
 
 
+        <!-- GST Calculator -->
+
         <div class="tool-card">
 
             <h3>GST Calculator</h3>
 
-            <p>Calculate GST amount and total price easily.</p>
+            <p>
+                Calculate GST amount and total price easily.
+            </p>
 
             <a href="gst-calculator.html">
                 <button>Use Tool</button>
@@ -121,11 +147,15 @@
         </div>
 
 
+        <!-- BMI Calculator -->
+
         <div class="tool-card">
 
             <h3>BMI Calculator</h3>
 
-            <p>Calculate your Body Mass Index easily.</p>
+            <p>
+                Calculate your Body Mass Index and BMI category.
+            </p>
 
             <a href="bmi-calculator.html">
                 <button>Use Tool</button>
@@ -134,11 +164,15 @@
         </div>
 
 
+        <!-- Discount Calculator -->
+
         <div class="tool-card">
 
             <h3>Discount Calculator</h3>
 
-            <p>Calculate discount amount and final price.</p>
+            <p>
+                Calculate discount amount and final price.
+            </p>
 
             <a href="discount-calculator.html">
                 <button>Use Tool</button>
@@ -147,39 +181,49 @@
         </div>
 
 
+        <!-- Unit Converter -->
+
         <div class="tool-card">
 
             <h3>Unit Converter</h3>
 
-            <p>Convert different units easily.</p>
+            <p>
+                Convert length, weight, temperature, speed and more.
+            </p>
 
-            <button>
-                Coming Soon
-            </button>
+            <a href="unit-converter.html">
+                <button>Use Tool</button>
+            </a>
 
         </div>
+
 
     </div>
 
 
+    <!-- About Tools Section -->
+
     <section class="content-section">
 
-        <h2>Free Online Calculators</h2>
+        <h2>Free Online Calculators & Tools</h2>
 
         <p>
             EasyToolBox provides free and easy-to-use online calculators
-            for everyday calculations. You can calculate age, EMI, GST,
-            BMI, percentage and discounts quickly without installing any software.
+            and tools for everyday tasks. You can calculate age, EMI,
+            GST, BMI, percentage and discounts quickly without installing
+            any software.
         </p>
 
         <p>
-            Our calculators are designed to be simple, fast and mobile-friendly,
+            Our tools are designed to be simple, fast and mobile-friendly,
             making everyday calculations easier for students, professionals
-            and everyone who needs quick results.
+            and anyone who needs quick results.
         </p>
 
     </section>
 
+
+    <!-- Why EasyToolBox -->
 
     <section class="content-section">
 
@@ -187,20 +231,24 @@
 
         <ul>
 
-            <li>Free online calculators</li>
+            <li>Free online calculators and tools</li>
 
-            <li>Easy and simple to use</li>
+            <li>Simple and easy to use</li>
 
             <li>Fast calculations</li>
 
-            <li>Mobile-friendly tools</li>
+            <li>Mobile-friendly design</li>
 
             <li>No software installation required</li>
+
+            <li>No registration required</li>
 
         </ul>
 
     </section>
 
+
+    <!-- FAQ -->
 
     <section class="content-section">
 
@@ -210,14 +258,15 @@
         <h3>Are EasyToolBox calculators free?</h3>
 
         <p>
-            Yes. EasyToolBox provides free online calculators for everyday use.
+            Yes. EasyToolBox provides free online calculators and tools
+            for everyday use.
         </p>
 
 
         <h3>Do I need to install an app?</h3>
 
         <p>
-            No. You can use the calculators directly from your web browser.
+            No. You can use EasyToolBox directly from your web browser.
         </p>
 
 
@@ -229,11 +278,18 @@
         </p>
 
 
-        <h3>What calculators are available?</h3>
+        <h3>What tools are available?</h3>
 
         <p>
-            EasyToolBox currently provides Age, EMI, GST, Percentage,
-            BMI and Discount Calculators.
+            EasyToolBox currently provides Percentage, Age, EMI, GST,
+            BMI, Discount and Unit Converter tools.
+        </p>
+
+
+        <h3>Is registration required?</h3>
+
+        <p>
+            No. You can use the available tools without creating an account.
         </p>
 
     </section>
@@ -265,3 +321,4 @@
 </body>
 
 </html>
+```
