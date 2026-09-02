@@ -482,3 +482,38 @@ function calculateEMI() {
     totalPayment.textContent =
         "Total Payment: ₹" + totalPaid.toFixed(2);
 }
+// ===============================
+// GST CALCULATOR
+// ===============================
+function calculateGST() {
+    const amount = parseFloat(
+        document.getElementById("gstAmount").value
+    );
+
+    const rate = parseFloat(
+        document.getElementById("gstRate").value
+    );
+
+    const gstResult = document.getElementById("gstResult");
+    const gstTotal = document.getElementById("gstTotal");
+
+    if (
+        isNaN(amount) ||
+        isNaN(rate) ||
+        amount < 0 ||
+        rate < 0
+    ) {
+        gstResult.textContent = "Please enter valid values.";
+        gstTotal.textContent = "";
+        return;
+    }
+
+    const gst = (amount * rate) / 100;
+    const total = amount + gst;
+
+    gstResult.textContent =
+        "GST Amount: ₹" + gst.toFixed(2);
+
+    gstTotal.textContent =
+        "Total Amount: ₹" + total.toFixed(2);
+}
