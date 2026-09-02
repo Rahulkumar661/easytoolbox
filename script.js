@@ -421,3 +421,64 @@ if (
     updateUnits();
 
 }
+// ===============================
+// EMI CALCULATOR
+// ===============================
+function calculateEMI() {
+    const loanAmount = parseFloat(
+        document.getElementById("loanAmount").value
+    );
+
+    const interestRate = parseFloat(
+        document.getElementById("interestRate").value
+    );
+
+    const loanTenure = parseFloat(
+        document.getElementById("loanTenure").value
+    );
+
+    const emiResult = document.getElementById("emiResult");
+    const totalInterest = document.getElementById("totalInterest");
+    const totalPayment = document.getElementById("totalPayment");
+
+    if (
+        isNaN(loanAmount) ||
+        isNaN(interestRate) ||
+        isNaN(loanTenure) ||
+        loanAmount <= 0 ||
+        interestRate < 0 ||
+        loanTenure <= 0
+    ) {
+        emiResult.textContent = "Please enter valid loan details.";
+        totalInterest.textContent = "";
+        totalPayment.textContent = "";
+        return;
+    }
+
+    const monthlyRate = interestRate / 12 / 100;
+    const numberOfMonths = loanTenure * 12;
+
+    let emi;
+
+    if (monthlyRate === 0) {
+        emi = loanAmount / numberOfMonths;
+    } else {
+        emi =
+            loanAmount *
+            monthlyRate *
+            Math.pow(1 + monthlyRate, numberOfMonths) /
+            (Math.pow(1 + monthlyRate, numberOfMonths) - 1);
+    }
+
+    const totalPaid = emi * numberOfMonths;
+    const interest = totalPaid - loanAmount;
+
+    emiResult.textContent =
+        "Monthly EMI: ₹" + emi.toFixed(2);
+
+    totalInterest.textContent =
+        "Total Interest: ₹" + interest.toFixed(2);
+
+    totalPayment.textContent =
+        "Total Payment: ₹" + totalPaid.toFixed(2);
+}
