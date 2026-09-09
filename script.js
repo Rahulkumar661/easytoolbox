@@ -592,3 +592,56 @@ function calculateBMI() {
     bmiCategory.textContent =
         "Category: " + category;
 }
+// ===============================
+// DISCOUNT CALCULATOR
+// ===============================
+
+function calculateDiscount() {
+
+    const originalPrice = parseFloat(
+        document.getElementById("originalPrice").value
+    );
+
+    const discountPercent = parseFloat(
+        document.getElementById("discountPercent").value
+    );
+
+    const discountResult =
+        document.getElementById("discountResult");
+
+    const finalPrice =
+        document.getElementById("finalPrice");
+
+
+    if (
+        isNaN(originalPrice) ||
+        isNaN(discountPercent) ||
+        originalPrice < 0 ||
+        discountPercent < 0
+    ) {
+
+        discountResult.textContent =
+            "Please enter valid values.";
+
+        finalPrice.textContent = "";
+
+        return;
+    }
+
+
+    const discountAmount =
+        (originalPrice * discountPercent) / 100;
+
+    const priceAfterDiscount =
+        originalPrice - discountAmount;
+
+
+    discountResult.textContent =
+        "Discount Amount: ₹" +
+        discountAmount.toFixed(2);
+
+
+    finalPrice.textContent =
+        "Final Price: ₹" +
+        priceAfterDiscount.toFixed(2);
+}
