@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Age Calculator - EasyToolBox</title>
+    <title>Age Calculator – Calculate Your Exact Age | EasyToolBox</title>
 
-    <meta name="description" content="Free online age calculator to calculate your exact age in years, months and days.">
+    <meta name="description" content="Free online Age Calculator to calculate your exact age in years, months and days from your date of birth. Simple, fast and easy to use.">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -33,123 +34,13 @@
 
     <h1>Age Calculator</h1>
 
+    <p style="text-align:center;">
+        Calculate your exact age in years, months and days.
+    </p>
+
     <label for="birthDate">Select your date of birth:</label>
 
     <input type="date" id="birthDate">
 
     <button type="button" onclick="calculateAge()">
-        Calculate Age
-    </button>
-
-    <div class="result">
-        <p id="ageResult">
-            Your age will appear here.
-        </p>
-    </div>
-
-</main>
-
-<section class="content-section">
-
-    <h2>What is an Age Calculator?</h2>
-
-    <p>
-        An Age Calculator is an online tool that calculates a person's
-        age from their date of birth to the current date.
-    </p>
-
-    <h2>How to Calculate Your Age</h2>
-
-    <p>
-        Select your date of birth above and click the "Calculate Age"
-        button. The calculator will show your age in years, months and days.
-    </p>
-
-    <h2>Why Use an Age Calculator?</h2>
-
-    <ul>
-        <li>Calculate your exact age quickly.</li>
-        <li>Easy to use on mobile and computer.</li>
-        <li>No registration required.</li>
-        <li>Free to use.</li>
-    </ul>
-
-    <h2>Frequently Asked Questions</h2>
-
-    <h3>Is the Age Calculator free?</h3>
-    <p>Yes. The EasyToolBox Age Calculator is free to use.</p>
-
-    <h3>What information do I need?</h3>
-    <p>You only need to enter your date of birth.</p>
-
-    <h3>Can I use this calculator on my phone?</h3>
-    <p>Yes. The calculator works on mobile phones, tablets and computers.</p>
-
-</section>
-
-<footer>
-
-    <p>© 2026 EasyToolBox</p>
-
-    <div class="footer-links">
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
-    </div>
-
-</footer>
-
-<script>
-
-function calculateAge() {
-
-    const birthDateValue = document.getElementById("birthDate").value;
-    const result = document.getElementById("ageResult");
-
-    if (!birthDateValue) {
-        result.textContent = "Please select your date of birth.";
-        return;
-    }
-
-    const birthDate = new Date(birthDateValue + "T00:00:00");
-    const today = new Date();
-
-    if (birthDate > today) {
-        result.textContent = "Date of birth cannot be in the future.";
-        return;
-    }
-
-    let years = today.getFullYear() - birthDate.getFullYear();
-    let months = today.getMonth() - birthDate.getMonth();
-    let days = today.getDate() - birthDate.getDate();
-
-    if (days < 0) {
-        months--;
-
-        const previousMonth = new Date(
-            today.getFullYear(),
-            today.getMonth(),
-            0
-        );
-
-        days += previousMonth.getDate();
-    }
-
-    if (months < 0) {
-        years--;
-        months += 12;
-    }
-
-    result.textContent =
-        "Your age is " +
-        years + " years, " +
-        months + " months and " +
-        days + " days.";
-
-}
-
-</script>
-
-</body>
-</html>
+```
