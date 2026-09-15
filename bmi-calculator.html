@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +16,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>BMI Calculator - Free Online BMI Calculator | EasyToolBox</title>
+    <title>BMI Calculator – Calculate Your Body Mass Index | EasyToolBox</title>
 
-    <meta name="description" content="Use the free EasyToolBox BMI Calculator to calculate your Body Mass Index using your weight in kilograms and height in centimetres.">
+    <meta name="description" content="Free online BMI Calculator to calculate Body Mass Index using your weight in kilograms and height in centimetres. Get your BMI and general BMI category quickly.">
 
     <meta name="robots" content="index, follow">
 
@@ -50,8 +51,9 @@
     <h1>BMI Calculator</h1>
 
     <p>
-        Calculate your Body Mass Index (BMI) quickly using our free online
-        BMI Calculator. Enter your weight and height to calculate your BMI.
+        Calculate your Body Mass Index (BMI) quickly using this free online
+        BMI Calculator. Enter your weight and height to calculate your BMI
+        and view the general BMI category.
     </p>
 
 
@@ -59,7 +61,9 @@
 
         <h2>Calculate Your BMI</h2>
 
-        <p>Enter your height and weight:</p>
+        <p>
+            Enter your height and weight below to calculate your Body Mass Index.
+        </p>
 
         <label for="weight">Weight (kg):</label>
 
@@ -110,7 +114,7 @@
         <h2>BMI Formula</h2>
 
         <p>
-            BMI = Weight (kg) ÷ Height² (m²)
+            <strong>BMI = Weight (kg) ÷ Height² (m²)</strong>
         </p>
 
         <p>
@@ -129,7 +133,7 @@
             <li>Enter your weight in kilograms.</li>
             <li>Enter your height in centimetres.</li>
             <li>Click the Calculate BMI button.</li>
-            <li>Your BMI result will be displayed.</li>
+            <li>Your BMI result and general category will be displayed.</li>
         </ol>
 
     </section>
@@ -147,9 +151,22 @@
         </ul>
 
         <p>
-            These categories are general adult screening ranges. BMI does
-            not directly measure body fat and may not be appropriate for
-            everyone, including children and some athletes.
+            These are general adult screening ranges. BMI does not directly
+            measure body fat and may not be appropriate for everyone,
+            including children and some athletes.
+        </p>
+
+    </section>
+
+
+    <section>
+
+        <h2>BMI Calculator Example</h2>
+
+        <p>
+            If a person weighs 60 kg and is 165 cm tall, their BMI is
+            approximately 22.04. The calculator can be used to perform
+            this calculation automatically.
         </p>
 
     </section>
@@ -161,9 +178,10 @@
 
         <ul>
             <li>Calculate BMI quickly.</li>
-            <li>Easy to use.</li>
-            <li>Free online tool.</li>
-            <li>Works on mobile phones and computers.</li>
+            <li>Easy to use online.</li>
+            <li>Free BMI calculation.</li>
+            <li>Works on mobile phones, tablets and computers.</li>
+            <li>Shows a general BMI category.</li>
         </ul>
 
     </section>
@@ -227,50 +245,4 @@
 </body>
 
 </html>
-// ===============================
-// BMI CALCULATOR
-// ===============================
-function calculateBMI() {
-    const weight = parseFloat(
-        document.getElementById("weight").value
-    );
-
-    const height = parseFloat(
-        document.getElementById("height").value
-    );
-
-    const bmiResult = document.getElementById("bmiResult");
-    const bmiCategory = document.getElementById("bmiCategory");
-
-    if (
-        isNaN(weight) ||
-        isNaN(height) ||
-        weight <= 0 ||
-        height <= 0
-    ) {
-        bmiResult.textContent = "Please enter valid weight and height.";
-        bmiCategory.textContent = "";
-        return;
-    }
-
-    const heightInMetres = height / 100;
-    const bmi = weight / (heightInMetres * heightInMetres);
-
-    let category;
-
-    if (bmi < 18.5) {
-        category = "Underweight";
-    } else if (bmi < 25) {
-        category = "Healthy weight";
-    } else if (bmi < 30) {
-        category = "Overweight";
-    } else {
-        category = "Obesity";
-    }
-
-    bmiResult.textContent =
-        "Your BMI: " + bmi.toFixed(2);
-
-    bmiCategory.textContent =
-        "Category: " + category;
-}
+```
