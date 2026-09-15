@@ -1,188 +1,311 @@
+<!DOCTYPE html>
 
-// ===============================
-// TOOL SEARCH
-// ===============================
+<html lang="en">
 
-function searchTools() {
-    const search = document.getElementById("searchBox");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    if (!search) return;
+```
+<title>Unit Converter – Length, Weight, Speed & Temperature | EasyToolBox</title>
 
-    const value = search.value.toLowerCase();
-    const cards = document.querySelectorAll(".tool-card");
+<meta name="description" content="Use the free EasyToolBox Unit Converter to convert length, weight, speed and temperature units online. Convert meters, kilometers, kilograms, grams, Celsius, Fahrenheit and more.">
 
-    cards.forEach(function(card) {
-        const text = card.innerText.toLowerCase();
+<meta name="keywords" content="unit converter, unit conversion calculator, length converter, weight converter, speed converter, temperature converter, meter to kilometer, kg to gram, Celsius to Fahrenheit">
 
-        if (text.includes(value)) {
-            card.style.display = "";
-        } else {
-            card.style.display = "none";
-        }
-    });
-}
+<meta name="robots" content="index, follow">
 
+<link rel="canonical" href="https://rahulkumar661.github.io/easytoolbox/unit-converter.html">
 
-// ===============================
-// UNIT CONVERTER
-// ===============================
+<link rel="stylesheet" href="style.css">
 
-const units = {
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJLNNYKJY7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    length: {
-        meter: 1,
-        kilometer: 1000,
-        centimeter: 0.01,
-        millimeter: 0.001,
-        mile: 1609.344,
-        yard: 0.9144,
-        foot: 0.3048,
-        inch: 0.0254
-    },
+  gtag('config', 'G-RJLNNYKJY7');
+</script>
+```
 
-    weight: {
-        kilogram: 1,
-        gram: 0.001,
-        milligram: 0.000001,
-        pound: 0.45359237,
-        ounce: 0.0283495
-    },
+</head>
 
-    speed: {
-        "km/h": 1,
-        "m/s": 3.6,
-        "mph": 1.609344
-    }
-};
+<body>
 
+<nav class="navbar">
 
-function updateUnits() {
+```
+<div class="nav-logo">
+    EasyToolBox
+</div>
 
-    const type = document.getElementById("unitType");
+<div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#tools">All Tools</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</div>
+```
 
-    if (!type) return;
+</nav>
 
-    const fromUnit = document.getElementById("fromUnit");
-    const toUnit = document.getElementById("toUnit");
+<main class="container">
 
-    fromUnit.innerHTML = "";
-    toUnit.innerHTML = "";
+```
+<h1>Unit Converter</h1>
 
-    if (type.value === "temperature") {
-
-        const temperatureUnits = [
-            "Celsius",
-            "Fahrenheit",
-            "Kelvin"
-        ];
-
-        temperatureUnits.forEach(function(unit) {
-
-            const option1 = document.createElement("option");
-            option1.value = unit;
-            option1.textContent = unit;
-
-            const option2 = document.createElement("option");
-            option2.value = unit;
-            option2.textContent = unit;
-
-            fromUnit.appendChild(option1);
-            toUnit.appendChild(option2);
-        });
-
-    } else {
-
-        Object.keys(units[type.value]).forEach(function(unit) {
-
-            const option1 = document.createElement("option");
-            option1.value = unit;
-            option1.textContent = unit;
-
-            const option2 = document.createElement("option");
-            option2.value = unit;
-            option2.textContent = unit;
-
-            fromUnit.appendChild(option1);
-            toUnit.appendChild(option2);
-        });
-    }
-}
+<p>
+    Convert different units quickly and easily with our free online
+    Unit Converter. You can convert length, weight, speed and
+    temperature units in seconds.
+</p>
 
 
-// ===============================
-// CONVERT UNIT
-// ===============================
+<section>
 
-function convertUnit() {
+    <h2>Convert Units Online</h2>
 
-    const type = document.getElementById("unitType").value;
-    const from = document.getElementById("fromUnit").value;
-    const to = document.getElementById("toUnit").value;
-    const value = parseFloat(document.getElementById("unitValue").value);
+    <label for="unitType">Select Unit Type:</label>
 
-    const result = document.getElementById("unitResult");
+    <select id="unitType" onchange="updateUnits()">
 
-    if (isNaN(value)) {
-        result.textContent = "Please enter a value.";
-        return;
-    }
+        <option value="length">Length</option>
+        <option value="weight">Weight</option>
+        <option value="speed">Speed</option>
+        <option value="temperature">Temperature</option>
+
+    </select>
 
 
-    // Temperature
-    if (type === "temperature") {
-
-        let celsius;
-
-        if (from === "Celsius") {
-            celsius = value;
-        }
-
-        else if (from === "Fahrenheit") {
-            celsius = (value - 32) * 5 / 9;
-        }
-
-        else if (from === "Kelvin") {
-            celsius = value - 273.15;
-        }
+    <br><br>
 
 
-        let converted;
+    <label for="unitValue">Enter Value:</label>
 
-        if (to === "Celsius") {
-            converted = celsius;
-        }
-
-        else if (to === "Fahrenheit") {
-            converted = (celsius * 9 / 5) + 32;
-        }
-
-        else if (to === "Kelvin") {
-            converted = celsius + 273.15;
-        }
-
-        result.textContent =
-            value + " " + from + " = " +
-            converted.toFixed(4) + " " + to;
-
-        return;
-    }
+    <input
+        type="number"
+        id="unitValue"
+        placeholder="Enter value"
+    >
 
 
-    // Length, Weight, Speed
-    const baseValue = value * units[type][from];
-
-    const convertedValue = baseValue / units[type][to];
-
-    result.textContent =
-        value + " " + from + " = " +
-        convertedValue.toFixed(4) + " " + to;
-}
+    <br><br>
 
 
-// ===============================
-// START UNIT CONVERTER
-// ===============================
+    <label for="fromUnit">From:</label>
 
-if (document.getElementById("unitType")) {
-    updateUnits();
-}
+    <select id="fromUnit"></select>
+
+
+    <label for="toUnit">To:</label>
+
+    <select id="toUnit"></select>
+
+
+    <br><br>
+
+
+    <button onclick="convertUnit()">
+        Convert
+    </button>
+
+
+    <h3 id="unitResult"></h3>
+
+</section>
+
+
+<section>
+
+    <h2>What is a Unit Converter?</h2>
+
+    <p>
+        A unit converter is an online tool used to convert a measurement
+        from one unit to another. It can make everyday calculations
+        faster and easier.
+    </p>
+
+    <p>
+        This Unit Converter supports common length, weight, speed and
+        temperature conversions.
+    </p>
+
+</section>
+
+
+<section>
+
+    <h2>Length Conversion</h2>
+
+    <p>
+        Length conversion is useful when converting measurements such as
+        meters, kilometers, centimeters, millimeters, miles, yards,
+        feet and inches.
+    </p>
+
+    <p>
+        For example, 1 kilometer is equal to 1,000 meters.
+    </p>
+
+</section>
+
+
+<section>
+
+    <h2>Weight Conversion</h2>
+
+    <p>
+        Weight conversion allows you to convert between units such as
+        kilograms, grams, milligrams, pounds and ounces.
+    </p>
+
+    <p>
+        For example, 1 kilogram is equal to 1,000 grams.
+    </p>
+
+</section>
+
+
+<section>
+
+    <h2>Speed Conversion</h2>
+
+    <p>
+        Speed conversion can be used to convert between kilometers per
+        hour (km/h), meters per second (m/s) and miles per hour (mph).
+    </p>
+
+    <p>
+        For example, 1 m/s is equal to 3.6 km/h.
+    </p>
+
+</section>
+
+
+<section>
+
+    <h2>Temperature Conversion</h2>
+
+    <p>
+        Temperature can be converted between Celsius, Fahrenheit and
+        Kelvin.
+    </p>
+
+    <p>
+        For example, 0 degrees Celsius is equal to 32 degrees Fahrenheit.
+    </p>
+
+</section>
+
+
+<section>
+
+    <h2>How to Use the Unit Converter</h2>
+
+    <ol>
+        <li>Select the type of unit you want to convert.</li>
+        <li>Enter the value you want to convert.</li>
+        <li>Select the original unit.</li>
+        <li>Select the unit you want to convert to.</li>
+        <li>Click the Convert button.</li>
+        <li>View the converted result.</li>
+    </ol>
+
+</section>
+
+
+<section>
+
+    <h2>Why Use Our Unit Converter?</h2>
+
+    <ul>
+        <li>Free online unit conversion.</li>
+        <li>Simple and easy to use.</li>
+        <li>Supports length, weight, speed and temperature.</li>
+        <li>Useful for everyday calculations.</li>
+        <li>Works on mobile phones, tablets and computers.</li>
+        <li>No registration required.</li>
+    </ul>
+
+</section>
+
+
+<section>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is the Unit Converter free?</h3>
+
+    <p>
+        Yes. The EasyToolBox Unit Converter is completely free to use.
+    </p>
+
+
+    <h3>What units can I convert?</h3>
+
+    <p>
+        You can currently convert common length, weight, speed and
+        temperature units.
+    </p>
+
+
+    <h3>Can I convert meters to kilometers?</h3>
+
+    <p>
+        Yes. Select Length, choose meters as the original unit and
+        kilometers as the target unit.
+    </p>
+
+
+    <h3>Can I convert kilograms to grams?</h3>
+
+    <p>
+        Yes. Select Weight and choose kilograms and grams from the
+        available units.
+    </p>
+
+
+    <h3>Can I convert Celsius to Fahrenheit?</h3>
+
+    <p>
+        Yes. Select Temperature, choose Celsius as the original unit
+        and Fahrenheit as the target unit.
+    </p>
+
+
+    <h3>Does the Unit Converter work on mobile?</h3>
+
+    <p>
+        Yes. The Unit Converter can be used on mobile phones, tablets
+        and computers.
+    </p>
+
+</section>
+```
+
+</main>
+
+<footer>
+
+```
+<p>© 2026 EasyToolBox</p>
+
+<div class="footer-links">
+
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms & Conditions</a>
+
+</div>
+```
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
